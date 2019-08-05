@@ -1,0 +1,5 @@
+Building an image for RaspberryPi Sika board....
+
+Pilot board specific targets:
+    elk-sika-image
+    elk-sika-image-dev

@@ -1,0 +1,14 @@
+[Unit]
+Description=sensei starting service
+After=sushi.service
+ConditionPathExists=/dev/rtdm/audio_rtdm
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+WorkingDirectory=/home/mind/logs/sensei
+ExecStart=/usr/bin/sensei -f # need to specify config file here
+User=mind
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=sushi starting service
+After=load-drivers.service
+ConditionPathExists=/dev/rtdm/audio_rtdm
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+WorkingDirectory=/home/mind/logs/sushi
+Environment=LD_LIBRARY_PATH=/usr/xenomai/lib
+ExecStart=/usr/bin/sushi -r -c /home/mind/config_files/config_empty.json
+User=mind
+
+[Install]
+WantedBy=multi-user.target
