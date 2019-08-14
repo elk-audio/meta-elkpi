@@ -1,3 +1,5 @@
 #!/bin/sh
 
-modprobe audio_rtdm audio_buffer_size=64 audio_channels=2 audio_sampling_rate=48000
+modprobe spi-bcm283x-rtdm
+
+#modprobe audio_rtdm audio_buffer_size=64 audio_channels=2 audio_sampling_rate=48000
