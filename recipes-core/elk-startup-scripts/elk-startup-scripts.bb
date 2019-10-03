@@ -3,6 +3,7 @@ SECTION = "misc"
 LICENSE = "CLOSED"
 
 SRC_URI = "file://load-drivers"
+RDEPENDS_${PN} = "bash"
 
 do_install() {
 

@@ -1,5 +1,14 @@
-#!/bin/sh
+#!/bin/bash
+modprobe rpi_shiftreg_rtdm
+modprobe audio_rtdm
 
-modprobe spi-bcm283x-rtdm
+DEVICE="/dev/rtdm/audio_rtdm"
 
-#modprobe audio_rtdm audio_buffer_size=64 audio_channels=2 audio_sampling_rate=48000
+if [ -e $DEVICE ]
+then
+    echo "audio_rtdm loaded"
+    exit 0
+else
+    echo "audio_rtdm failed"
+    exit 1
+fi

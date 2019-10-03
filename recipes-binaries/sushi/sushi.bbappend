@@ -1,6 +1,6 @@
 # Recipe append for sushi for the product.
 
-SRCREV = "470599f01315337fafc501b6beed21b89fb35689"
+SRCREV = "0e36566d13d4c9fb6d9aa3ff482bfdfa32960c0e"
 VST2SDK_REV="c4698a9e815a081d836a61d541da0b05be740456"
 
 PV = "0.7.0+${SRCREV}"
@@ -22,7 +22,7 @@ EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release \
                   -DBUILD_TWINE=FALSE \
                   -DWITH_RASPA_TESTS=FALSE \
                   -DAUDIO_BUFFER_SIZE=64 \
-                  -DXENOMAI_AUDIO_CHANNELS=4 \
+                  -DXENOMAI_AUDIO_CHANNELS=8 \
                   -DXENOMAI_AUDIO_SAMPLE_RATE=48000 \
                   -DXENOMAI_BASE_DIR=${WORKDIR}/recipe-sysroot/usr/xenomai \
                   -DWITH_UNIT_TESTS=FALSE \

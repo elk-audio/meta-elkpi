@@ -7,11 +7,12 @@ IMAGE_INSTALL += " \
     packagegroup-elk-libs \
     packagegroup-elk-system-pkgs \
     packagegroup-elk-applications \
-    packagegroup-elk-clang-pkgs \
     packagegroup-elk-raspberrypi-system-pkgs \
     packagegroup-elk-sika-applications \
     packagegroup-elk-sika-system-pkgs \
 "
+
+#    packagegroup-elk-clang-pkgs
 
 ROOTFS_POSTPROCESS_COMMAND += "set_special_permissions; "
 

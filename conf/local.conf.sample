@@ -1,4 +1,4 @@
-MACHINE = "raspberrypi3-64"
+MACHINE = "raspberrypi3"
 DISTRO = "elk"
 DL_DIR = "${TOPDIR}/../downloads"
 
