@@ -1,9 +1,9 @@
 # Recipe append for sushi for the product.
 
-SRCREV = "0e36566d13d4c9fb6d9aa3ff482bfdfa32960c0e"
+SRCREV = "23a4f57d8f4c8a5db961e13d48683cfbfa2b0407"
 VST2SDK_REV="c4698a9e815a081d836a61d541da0b05be740456"
 
-PV = "0.7.0+${SRCREV}"
+PV = "0.8.0+${SRCREV}"
 
 DEPENDS += "grpc grpc-native protobuf protobuf-native protobuf-c protobuf-c-native"
 
@@ -24,6 +24,7 @@ EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release \
                   -DWITH_VST2=TRUE \
                   -DBUILD_TWINE=FALSE \
                   -DWITH_RASPA_TESTS=FALSE \
+                  -DRASPA_WITH_UCONTROLLER=FALSE \
                   -DAUDIO_BUFFER_SIZE=64 \
                   -DXENOMAI_AUDIO_CHANNELS=8 \
                   -DXENOMAI_AUDIO_SAMPLE_RATE=48000 \
