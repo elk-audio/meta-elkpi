@@ -22,6 +22,8 @@ PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 CONF_VERSION = "1"
 
 SECURITY_STRINGFORMAT = "-Wformat -Wformat-security"
+CMDLINE_append = " console=serial0,115200"
+
 INHERIT += "rm_work"
 DISABLE_BT = "1"
 ENABLE_UART = "1"
