@@ -14,6 +14,9 @@ LIC_FILES_CHKSUM_remove = " \
     " 
 
 # Specify any options you want to pass to cmake using EXTRA_OECMAKE:
+OECMAKE_C_FLAGS_RELEASE += "-O3"
+OECMAKE_CXX_FLAGS_RELEASE += "-O3"
+
 EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release \
                   -DWITH_RPC_INTERFACE=TRUE \
                   -DWITH_JACK=FALSE \

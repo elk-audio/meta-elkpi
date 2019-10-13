@@ -22,5 +22,7 @@ PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 CONF_VERSION = "1"
 
 INHERIT += "rm_work"
+DISABLE_BT = "1"
+ENABLE_UART = "1"
 
 EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
