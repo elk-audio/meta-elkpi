@@ -9,6 +9,7 @@ require elk-sika-common.inc
 
 IMAGE_INSTALL += "packagegroup-elk-devtools \
                   packagegroup-elk-python-pkgs \
+                  packagegroup-elk-audio-extra \
                   mda-vst2-plugins \
                   mda-vst3-plugins"
 
