@@ -19,5 +19,4 @@ ROOTFS_POSTPROCESS_COMMAND += "set_special_permissions; "
 set_special_permissions () {
     chown -R mind ${IMAGE_ROOTFS}/home/mind
     chgrp -R mind ${IMAGE_ROOTFS}/home/mind
-    sed -i 's/# %sudo/%sudo/' ${IMAGE_ROOTFS}/etc/sudoers
 }

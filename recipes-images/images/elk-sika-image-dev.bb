@@ -20,3 +20,10 @@ IMAGE_FSTYPES = "wic.bz2"
 NOISO = "0"
 NOHDD = "1"
 WKS_FILE = "sika.wks"
+
+ROOTFS_POSTPROCESS_COMMAND += "set_sudo_permissions; "
+
+set_sudo_permissions () {
+    # Give sudo permission for users
+    sed -i 's/# %sudo/%sudo/' ${IMAGE_ROOTFS}/etc/sudoers
+}
