@@ -23,7 +23,7 @@ EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release \
                   -DWITH_VST3=TRUE \
                   -DWITH_VST2=TRUE \
                   -DBUILD_TWINE=FALSE \
-                  -DWITH_RASPA_TESTS=FALSE \
+                  -DRASPA_WITH_TESTS=FALSE \
                   -DRASPA_WITH_UCONTROLLER=FALSE \
                   -DAUDIO_BUFFER_SIZE=64 \
                   -DXENOMAI_AUDIO_CHANNELS=8 \
