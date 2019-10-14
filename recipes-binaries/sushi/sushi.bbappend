@@ -11,11 +11,7 @@ DEPENDS += "grpc grpc-native protobuf protobuf-native protobuf-c protobuf-c-nati
 LIC_FILES_CHKSUM_remove = " \
     file://third-party/vstsdk2.4/vstgui.sf/vstgui/Documentation/html/license.html;md5=a0b7291eff176aa998343351b3abcdba \
     file://third-party/vstsdk2.4/doc/html/license.html;md5=c3b5d06993a4faa04988fc48571b7e1f \
-    " 
-
-# Specify any options you want to pass to cmake using EXTRA_OECMAKE:
-OECMAKE_C_FLAGS_RELEASE += "-O3"
-OECMAKE_CXX_FLAGS_RELEASE += "-O3"
+    "
 
 EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release \
                   -DWITH_RPC_INTERFACE=TRUE \
