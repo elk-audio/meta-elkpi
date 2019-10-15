@@ -12,5 +12,4 @@ RDEPENDS_packagegroup-elk-sika-applications = " \
     rpi-gpio \
     rpio \
     raspi-gpio \
-    wiringpi \
     "
