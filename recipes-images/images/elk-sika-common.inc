@@ -1,5 +1,6 @@
 SYSTEMD_DEFAULT_TARGET = "custom-elk.target"
 IMAGE_FEATURES += "package-management"
+IMAGE_FEATURES += "read-only-rootfs"
 
 IMAGE_LINGUAS += "en-us"
 
