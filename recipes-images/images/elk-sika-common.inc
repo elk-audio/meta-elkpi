@@ -10,9 +10,12 @@ IMAGE_INSTALL += " \
     packagegroup-elk-raspberrypi-system-pkgs \
     packagegroup-elk-sika-applications \
     packagegroup-elk-sika-system-pkgs \
+    packagegroup-elk-clang-pkgs \
 "
 
-#    packagegroup-elk-clang-pkgs
+IMAGE_INSTALL_remove = " dropbear"
+IMAGE_INSTALL_append = " glibc-utils localedef"
+IMAGE_LINGUAS += "en-us"
 
 ROOTFS_POSTPROCESS_COMMAND += "set_special_permissions; "
 

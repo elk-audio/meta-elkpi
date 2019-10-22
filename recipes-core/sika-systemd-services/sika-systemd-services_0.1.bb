@@ -25,4 +25,6 @@ do_install () {
 
 NATIVE_SYSTEMD_SUPPORT = "1"
 SYSTEMD_PACKAGES += "${PN}"
+SYSTEMD_SERVICE_${PN} += "sushi.service \
+                          sensei.service"
 #SYSTEMD_AUTO_ENABLE = "enable"
