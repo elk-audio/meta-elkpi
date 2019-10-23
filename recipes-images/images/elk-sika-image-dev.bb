@@ -8,7 +8,6 @@ inherit populate_sdk_qt5
 IMAGE_INSTALL += "packagegroup-elk-devtools \
                   packagegroup-elk-python-pkgs \
                   packagegroup-elk-audio-extra \
-                  packagegroup-elk-clang-dev-pkgs \
                   packagegroup-elk-qt-pkgs \
                   mda-vst2-plugins \
                   mda-vst3-plugins"
