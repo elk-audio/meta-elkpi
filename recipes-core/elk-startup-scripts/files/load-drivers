@@ -1,6 +1,6 @@
 #!/bin/bash
 modprobe rpi_shiftreg_rtdm
-modprobe audio_rtdm
+modprobe audio_rtdm audio_buffer_size=64
 
 DEVICE="/dev/rtdm/audio_rtdm"
 
