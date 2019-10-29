@@ -1,0 +1,45 @@
+#!/bin/sh
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/home/mind/scripts
+
+DESC="swupdate"
+NAME="swupdate"
+DAEMON=/usr/bin/swupdate
+
+part=/dev/$1
+
+mount $part /mnt
+
+rootfs=`mount | grep "on / type" | cut -d':' -f 2 | cut -d' ' -f 1`
+
+if [ $rootfs == '/dev/mmcblk0p2' ];then
+	selection="-e stable,mmcblk0p3"
+else
+	selection="-e stable,mmcblk0p2"
+fi
+
+echo "Starting $DESC ..."
+echo "rootfs is mounted on $rootfs and selection is $selection"
+
+# Parse /mnt for valid update files
+highest_swu=$(get-latest-swu /mnt)
+if [[  -z  $highest_swu  ]]; then
+    echo "No valid .swu file found, quitting update task"
+    umount /mnt
+    exit 0
+fi
+
+echo "Update found:"
+echo $highest_swu
+
+swupdate -v ${selection} -i $highest_swu
+if [ $? -eq 0 ]; then
+	sync
+	echo "swupdate-client: update done"
+else
+	echo "swupdate-client: update failed"
+	umount /mnt
+	exit 1
+fi
+
+umount /mnt
+exit 0

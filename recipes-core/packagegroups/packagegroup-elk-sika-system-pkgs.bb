@@ -4,9 +4,11 @@ inherit packagegroup
 
 RDEPENDS_packagegroup-elk-sika-system-pkgs = " \
     sika-systemd-services \
-    sw-version \
+    swupdate \
+    swupdate-client \
     udev-rules-rpi \
     crda \
     iw \
     wpa-supplicant \
+    fw_utils \
     "
