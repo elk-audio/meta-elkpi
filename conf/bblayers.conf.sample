@@ -14,7 +14,6 @@ BBLAYERS ?= " \
     ##OEROOT##/meta-openembedded/meta-networking \
     ##OEROOT##/meta-openembedded/meta-filesystems \
     ##OEROOT##/meta-qt5 \
-    ##OEROOT##/meta-clang \
     ##OEROOT##/meta-raspberrypi \
     ##OEROOT##/meta-elk \
     ##OEROOT##/meta-raspberrypi-elk \

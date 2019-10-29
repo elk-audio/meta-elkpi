@@ -10,7 +10,6 @@ IMAGE_INSTALL += " \
     packagegroup-elk-raspberrypi-system-pkgs \
     packagegroup-elk-sika-applications \
     packagegroup-elk-sika-system-pkgs \
-    packagegroup-elk-clang-pkgs \
 "
 
 IMAGE_INSTALL_remove = " dropbear"
