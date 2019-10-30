@@ -18,5 +18,4 @@ BBLAYERS ?= " \
     ##OEROOT##/meta-elk \
     ##OEROOT##/meta-raspberrypi-elk \
     ##OEROOT##/meta-sika \
-    ##OEROOT##/meta-swupdate \
 "
