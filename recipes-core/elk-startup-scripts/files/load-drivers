@@ -1,12 +1,15 @@
 #!/bin/bash
-modprobe rpi_shiftreg_rtdm
+modprobe shiftreg_rtdm adc_chans_per_tick=4
 modprobe audio_rtdm audio_buffer_size=64
+modprobe i2c_dev
 
 DEVICE="/dev/rtdm/audio_rtdm"
 
 if [ -e $DEVICE ]
 then
     echo "audio_rtdm loaded"
+    fw_setenv boot_count 0
+    sync
     exit 0
 else
     echo "audio_rtdm failed"
