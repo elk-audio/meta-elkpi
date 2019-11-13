@@ -1,5 +1,5 @@
 # Specific sensei verson for sika
-SRCREV = "97826487c0c680571abb3395db3962cb88bd4ea5"
+SRCREV = "92051d529090d20751540401484ce21c3ca0292c"
 PV = "0.2.0+${SRCREV}"
 
 DEPENDS += "xenomai-lib"
