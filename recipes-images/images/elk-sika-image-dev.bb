@@ -13,7 +13,7 @@ IMAGE_INSTALL += "packagegroup-elk-devtools \
                   mda-vst3-plugins"
 
 EXTRA_IMAGE_FEATURES += " ssh-server-openssh package-management"
-IMAGE_ROOTFS_SIZE = "1000000"
+IMAGE_ROOTFS_SIZE = "2000000"
 SDIMG_ROOTFS_TYPE = "ext4"
 IMAGE_FSTYPES = "wic tar.gz"
 NOISO = "0"
