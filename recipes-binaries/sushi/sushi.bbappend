@@ -1,6 +1,6 @@
 # Recipe append for sushi for the product.
 
-SRCREV = "a93f62d46d579756becb3c4ed357b57636fd9f2e"
+SRCREV = "c213d30da76c0e8c67d6b8ce6bf6e447d20a63be"
 VST2SDK_REV="c4698a9e815a081d836a61d541da0b05be740456"
 
 PV = "0.8.0+${SRCREV}"
