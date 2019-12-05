@@ -2,6 +2,7 @@
 modprobe shiftreg_rtdm adc_chans_per_tick=4
 modprobe audio_rtdm audio_buffer_size=64
 modprobe i2c_dev
+rfkill unblock all
 
 DEVICE="/dev/rtdm/audio_rtdm"
 
@@ -10,6 +11,7 @@ then
     echo "audio_rtdm loaded"
     fw_setenv boot_count 0
     sync
+    umount /boot
     exit 0
 else
     echo "audio_rtdm failed"

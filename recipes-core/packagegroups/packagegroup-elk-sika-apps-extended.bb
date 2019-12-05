@@ -2,9 +2,8 @@ SUMMARY = "Package group for packages needed by Sika"
 
 inherit packagegroup
 
-RDEPENDS_packagegroup-elk-sika-applications = " \
+RDEPENDS_packagegroup-elk-sika-apps-extended = " \
     elk-standalone-files \
-    elk-startup-scripts \
     pi-bluetooth \
     pi-blaster \
     python-rtimu \
