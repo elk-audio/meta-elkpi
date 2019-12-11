@@ -6,7 +6,7 @@ ConditionPathExists=/dev/rtdm/audio_rtdm
 [Service]
 Type=simple
 RemainAfterExit=yes
-WorkingDirectory=/home/mind/logs/sushi
+WorkingDirectory=/udata/
 Environment=LD_LIBRARY_PATH=/usr/xenomai/lib
 ExecStart=/usr/bin/sushi -r -c /home/mind/config_files/config_empty.json
 User=mind

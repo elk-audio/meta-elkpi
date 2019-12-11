@@ -1,6 +1,9 @@
 # Recipe append for sushi for the product.
 
-SRCREV = "10596b773c578df4d2f83e99d07ed25356cc3537"
+SRC_URI = "gitsm://github.com/elk-audio/sushi;protocol=https;nobranch=1"
+SRC_URI += "file://sushi"
+
+SRCREV = "e0eeac32fa8f1ed18f0a19d54f8d04c4728e9ece"
 VST2SDK_REV="c4698a9e815a081d836a61d541da0b05be740456"
 
 PV = "0.8.0+${SRCREV}"
@@ -19,11 +22,6 @@ EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release \
                   -DWITH_VST3=TRUE \
                   -DWITH_VST2=TRUE \
                   -DBUILD_TWINE=FALSE \
-                  -DRASPA_WITH_TESTS=FALSE \
-                  -DRASPA_WITH_UCONTROLLER=FALSE \
-                  -DAUDIO_BUFFER_SIZE=64 \
-                  -DXENOMAI_AUDIO_CHANNELS=8 \
-                  -DXENOMAI_AUDIO_SAMPLE_RATE=48000 \
                   -DXENOMAI_BASE_DIR=${WORKDIR}/recipe-sysroot/usr/xenomai \
                   -DWITH_UNIT_TESTS=FALSE \
                   -DVST2_SDK_PATH=${WORKDIR}/git/third-party/vstsdk2.4 \

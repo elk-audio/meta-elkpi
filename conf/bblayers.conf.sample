@@ -13,10 +13,11 @@ BBLAYERS ?= " \
     ##OEROOT##/meta-openembedded/meta-python \
     ##OEROOT##/meta-openembedded/meta-networking \
     ##OEROOT##/meta-openembedded/meta-filesystems \
-    ##OEROOT##/meta-qt5 \
     ##OEROOT##/meta-raspberrypi \
     ##OEROOT##/meta-elk \
     ##OEROOT##/meta-raspberrypi-elk \
     ##OEROOT##/meta-sika \
     ##OEROOT##/meta-swupdate \
 "
+# uncomment to enable qt5 in image
+# BBLAYERS += "OEROOT/meta-qt5 "

@@ -3,6 +3,7 @@ DESCRIPTION = "Elk Linux development image for Sika"
 LICENSE = "GPLv2"
 require recipes-core/images/core-image-minimal-dev.bb
 require elk-sika-common.inc
+inherit populate_sdk_qt5
 
 IMAGE_INSTALL += " \
                   packagegroup-elk-devtools-extended \
@@ -13,6 +14,7 @@ IMAGE_INSTALL += " \
                   packagegroup-elk-sika-apps-extended \
                   packagegroup-elk-system-extended \
                   packagegroup-elk-libs-extended \
+                  packagegroup-elk-qt-pkgs \
                   mda-vst2-plugins \
                   mda-vst3-plugins"
 

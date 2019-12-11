@@ -6,7 +6,7 @@ ConditionPathExists=/dev/rtdm/audio_rtdm
 [Service]
 Type=simple
 RemainAfterExit=yes
-WorkingDirectory=/home/mind/logs/sensei
+WorkingDirectory=/udata/
 ExecStart=/usr/bin/sensei -f # need to specify config file here
 User=mind
 

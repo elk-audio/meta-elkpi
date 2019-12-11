@@ -1,0 +1,13 @@
+[Unit]
+Description=Run script to connect midi ports
+
+# You can add more dependencies here
+After=sushi.service
+
+[Service]
+Type=simple
+User=mind
+ExecStart=/usr/bin/connect-midi-apps
+
+[Install]
+WantedBy=multi-user.target

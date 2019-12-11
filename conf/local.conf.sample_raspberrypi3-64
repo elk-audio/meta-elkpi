@@ -1,4 +1,4 @@
-MACHINE = "raspberrypi3"
+MACHINE = "raspberrypi3-64"
 DISTRO = "elk"
 DL_DIR = "${TOPDIR}/../downloads"
 
@@ -32,26 +32,3 @@ EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
 
 # set the host name of device
 hostname_pn-base-files = "elk-pi"
-
-RPI_KERNEL_DEVICETREE = " \
-    bcm2708-rpi-0-w.dtb \
-    bcm2708-rpi-b.dtb \
-    bcm2708-rpi-b-plus.dtb \
-    bcm2709-rpi-2-b.dtb \
-    bcm2710-rpi-3-b.dtb \
-    bcm2710-rpi-3-b-plus.dtb \
-    bcm2708-rpi-cm.dtb \
-    bcm2710-rpi-cm3.dtb \
-    "
-
-# When u-boot is enabled we need to use the "Image" format and the "booti"
-# command to load the kernel
-KERNEL_IMAGETYPE_UBOOT_raspberrypi3-64 = "Image"
-# "zImage" not supported on arm64 and ".gz" images not supported by bootloader yet
-KERNEL_IMAGETYPE_DIRECT_raspberrypi3-64 = "Image"
-KERNEL_BOOTCMD_raspberrypi3-64 = "booti"
-
-# Comment the following for qt image
-BBMASK += "meta-sika/recipes-images/images/elk-sika-image-dev-full.bb"
-BBMASK += "meta-elk/recipes-qt/simple-qt/simple-qt.bb"
-BBMASK += "meta-elk/recipes-qt/qt/qtbase_git.bbappend"
