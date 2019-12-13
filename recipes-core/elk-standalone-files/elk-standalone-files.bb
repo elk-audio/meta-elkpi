@@ -6,7 +6,7 @@ SRC_URI = "git://git@bitbucket.org/mindswteam/elk-standalone-home.git;protocol=s
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "af91bfeafca29f1ebad045f0caf0e6053e794b78"
+SRCREV = "52e38a4ee7c01f02f6ccf087daac201bd5592335"
 
 UDATA_DIR = "/udata"
 
