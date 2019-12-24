@@ -1,4 +1,4 @@
-# Recipe created by recipetool
+DESCRIPTION = "A collection of useful files for mind user in elk-pi boards"
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
 
