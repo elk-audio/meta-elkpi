@@ -1,5 +1,5 @@
-# Specific sensei verson for sika
-SRCREV = "92051d529090d20751540401484ce21c3ca0292c"
+DESCRIPTION = "Specific sensei version and build options for the elk pi"
+SRCREV = "3345a575b8bf99d375c0e8d5f5636e01bf6d2655"
 PV = "0.2.0+${SRCREV}"
 
 DEPENDS += "xenomai-lib"
