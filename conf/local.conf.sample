@@ -52,6 +52,6 @@ KERNEL_IMAGETYPE_DIRECT_raspberrypi3-64 = "Image"
 KERNEL_BOOTCMD_raspberrypi3-64 = "booti"
 
 # Comment the following for qt image
-BBMASK += "meta-elkpi/recipes-images/images/elk-sika-image-dev-full.bb"
+BBMASK += "meta-elkpi/recipes-images/images/elkpi-audio-os-image-qt.bb"
 BBMASK += "meta-elk/recipes-qt/simple-qt/simple-qt.bb"
 BBMASK += "meta-elk/recipes-qt/qt/qtbase_git.bbappend"
