@@ -46,18 +46,17 @@ By default, mda-vst2 plugins are not installed in the image and SUSHI will not
  have VST2 support enabled. If you have access to the VST2 SDK:
 
 - You can add mda-vst2 plugins to an image by adding the following line to the
-  image recipe
-  ```python
-   IMAGE_INSTALL += "mda-vst2-plugins"
-   ```
-
+  image recipe  
+    ```
+    IMAGE_INSTALL += "mda-vst2-plugins"
+    ```   
 - Add VST2 support to sushi Edit the
   [SUSHI](recipes-binaries/sushi/sushi_git.bbappend) recipe by adding the
-   following two lines
-   ```python
-   EXTRA_OECMAKE += " -DWITH_VST2=TRUE"
-   EXTRA_OECMAKE += " -DVST2_SDK_PATH=path/to/the/vst2sdk/in/your/build/machine"
-   ```
+   following two lines  
+    ```
+    EXTRA_OECMAKE += " -DWITH_VST2=TRUE"
+    EXTRA_OECMAKE += " -DVST2_SDK_PATH=path/to/the/vst2sdk/in/your/build/machine"
+    ```
 
 ---
 
@@ -72,13 +71,13 @@ You can add your custom files (plugin binaries, scripts, samples etc) by
  [elkpi-user-files](recipes-core/elkpi-user-files/elkpi-user-files_0.1.bb) recipe.
 
  - Add the new files in the [files](recipes-core/elkpi-user-files/files)
-   directory and add the new file to the list of sources in the recipe.
-   ```python
+   directory and add the new file to the list of sources in the recipe.  
+   ```
    SRC_URI += "file://your_new_file"
    ```
  - Add the following line to the `do_install` to specify where the files should
-   be installed
-   ```python
+   be installed  
+   ```
    cp -r ${WORKDIR}/your_new_file ${D}path_in_image_rootfs
    ```
 
@@ -95,14 +94,14 @@ You can enable and customize the automatic startup of SUSHI and SENSEI in the
   script to describe what you need.
 - Replace the last line in the recipe
   [elkpi-systemd-services](recipes-core/elkpi-systemd-services/elkpi-systemd-services_0.1.bb)
-  with the following
-   ```python
+  with the following  
+   ```
    SYSTEMD_AUTO_ENABLE = "enable"
    ```
 
 ## Read Only File System
-You can enable an image to be read only root file system by adding the following line to an image recipe:
-```python
+You can enable an image to be read only root file system by adding the following line to an image recipe:  
+```
 IMAGE_FEATURES += "read-only-rootfs"
 ```
 
