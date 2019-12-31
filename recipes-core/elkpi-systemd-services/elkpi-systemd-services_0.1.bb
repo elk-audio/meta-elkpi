@@ -34,7 +34,7 @@ SYSTEMD_SERVICE_${PN} += "sushi.service \
                           sensei.service \
                           midi-connections.service"
 
+FILES_${PN} += "${systemd_system_unitdir}/*"
+
 # To enable it replace disable with enable.
 SYSTEMD_AUTO_ENABLE = "disable"
-
-FILES_${PN} += "${systemd_system_unitdir}/*"
