@@ -1,6 +1,6 @@
-# short-description: Create Raspberry Pi SD card image
+# short-description: Create Elk Pi SD card image
 # long-description: Creates a partitioned SD card image for use with
-# Raspberry Pi. Boot files are located in the first vfat partition.
+# Elk Pi. Boot files are located in the first vfat partition.
 
 part --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 4096 --size 40
 part / --source rootfs --ondisk mmcblk0 --fstype=ext4 --label rootfs1 --align 1024 --size 2048M --use-uuid
