@@ -7,9 +7,9 @@ DEPENDS += "\
     protobuf-c-native\
 "
 
-PV = "0.9.0+${SRCREV}"
+PV = "0.9.1+${SRCREV}"
 
-SRCREV = "e0eeac32fa8f1ed18f0a19d54f8d04c4728e9ece"
+SRCREV = "868dd3c1afcea5655c6f93d058978df62dafb08c"
 
 EXTRA_OECMAKE += "\
     -DCMAKE_BUILD_TYPE=Release \
