@@ -1,7 +1,7 @@
 # Meta ElkPi
 OpenEmbedded/Yocto Project layer which forms the final product layer for
  creating the Elk Audio OS Image for the ElkPi Development Kits based on the
- RaspberryPi 3B+.
+ RaspberryPi 3B+ or 3B.
 
 Contains necessary packages, services, firmware binaries and image recipes
  specific to the ElkPi Development Kit.
