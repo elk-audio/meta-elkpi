@@ -27,7 +27,7 @@ CMDLINE_append = " dwc_otg.speed=1"
 INHERIT += "rm_work"
 ENABLE_UART = "1"
 RPI_USE_U_BOOT = "1"
-
+SERIAL_CONSOLES = "ttyS0,57600"
 EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
 
 # set the host name of device
@@ -52,6 +52,6 @@ KERNEL_IMAGETYPE_DIRECT_raspberrypi3-64 = "Image"
 KERNEL_BOOTCMD_raspberrypi3-64 = "booti"
 
 # Comment the following for qt image
-BBMASK += "meta-sika/recipes-images/images/elk-sika-image-dev-full.bb"
-BBMASK += "meta-elk/recipes-qt/simple-qt/simple-qt.bb"
+BBMASK += "meta-elkpi/recipes-images/images/elkpi-audio-os-image-qt.bb"
+BBMASK += "meta-elk/recipes-qt/simple-qt/simple-qt_0.1.bb"
 BBMASK += "meta-elk/recipes-qt/qt/qtbase_git.bbappend"

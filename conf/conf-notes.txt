@@ -1,5 +1,18 @@
-Building an image for RaspberryPi Sika board....
 
-Pilot board specific targets:
-    elk-sika-image
-    elk-sika-image-dev
+###############################################################
+
+Elk Audio OS Images for Elk Pi board on RaspberryPi 3b+
+
+###############################################################
+
+Elk Pi board specific targets:
+    elkpi-audio-os-image-basic - builds a minimal Elk Audio OS development image
+                                 with only essential packages
+    elkpi-audio-os-image       - builds a full Elk Audio OS development image
+
+
+To build an image, run:
+    bitbake <image name>
+
+To build the cross-compiling Yocto SDK, run:
+    bitbake -c populate_sdk elkpi-audio-os-image

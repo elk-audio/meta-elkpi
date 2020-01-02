@@ -16,7 +16,7 @@ BBLAYERS ?= " \
     ##OEROOT##/meta-raspberrypi \
     ##OEROOT##/meta-elk \
     ##OEROOT##/meta-raspberrypi-elk \
-    ##OEROOT##/meta-sika \
+    ##OEROOT##/meta-elkpi \
     ##OEROOT##/meta-swupdate \
 "
 # uncomment to enable qt5 in image

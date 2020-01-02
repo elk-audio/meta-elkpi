@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Script to automate the midi connection between the clients of your choice. A basic example of connecting
+# a midi keyboard to sushi at startup is shown here
+
+#You can edit this file and enable the midi-connections for automatic midi connection at bootup
+# To enable this service type
+# 	sudo systemctl enable midi-connections
+
+aconnect "midi-keyboard" "Sushi"
+while [ $? -ne 0 ]; do
+    sleep 0.5
+    aconnect "midi-keyboard" "Sushi"
+done
