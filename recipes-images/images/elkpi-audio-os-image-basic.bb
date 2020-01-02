@@ -1,4 +1,4 @@
-SUMMARY = "Image for The Elk Pi which contains basic packages"
+SUMMARY = "Image for Elk Pi which contains basic packages"
 HOMEPAGE = "https://github.com/elk-audio/meta-elkpi"
 
 require recipes-core/images/core-image-minimal.bb

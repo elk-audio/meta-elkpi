@@ -1,4 +1,4 @@
-# Specific commit and build options of raspa for Elk PI boards
+# Specific commit and build options of raspa for Elk Pi boards
 PV = "0.1.0+${SRCREV}"
 SRCREV = "ea38a38c893445e4d01d0e7c255cea6e1c8bb694"
 

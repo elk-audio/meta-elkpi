@@ -1,18 +1,18 @@
 
 ###############################################################
 
-Elk Audio OS Image for ElkPi board based on the RaspberryPi 3b+
+Elk Audio OS Images for Elk Pi board on RaspberryPi 3b+
 
 ###############################################################
 
-ElkPi board specific targets:
+Elk Pi board specific targets:
     elkpi-audio-os-image-basic - builds a minimal Elk Audio OS development image
                                  with only essential packages
     elkpi-audio-os-image       - builds a full Elk Audio OS development image
 
 
 To build an image, run:
-    bitbake < image name >
+    bitbake <image name>
 
-To build the sdk run:
+To build the cross-compiling Yocto SDK, run:
     bitbake -c populate_sdk elkpi-audio-os-image

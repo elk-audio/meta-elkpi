@@ -1,4 +1,4 @@
-SUMMARY = "System files and startup sripts for the Elk Pi"
+SUMMARY = "System files and startup scripts for the ElkPi board"
 HOMEPAGE = "https://github.com/elk-audio/meta-elkpi"
 
 LICENSE = "GPL-2.0"
