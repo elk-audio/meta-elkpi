@@ -1,7 +1,6 @@
 #!/bin/sh
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/home/mind/scripts
 
-GPIO=
 GPIODIR=/sys/class/gpio/gpio$GPIO
 DESC="swupdate"
 NAME="swupdate"
@@ -44,12 +43,12 @@ if [ $? -eq 0 ]; then
 	echo "swupdate-client: update done"
 	killall notify-swupdate-start
 	echo 0 > $GPIODIR_RED/value;
-        echo 1 > $GPIODIR_GREEN/value;
+	echo 1 > $GPIODIR_GREEN/value;
 else
 	echo "swupdate-client: update failed"
 	killall notify-swupdate-start
 	echo 1 > $GPIODIR_RED/value;
-        echo 0 > $GPIODIR_GREEN/value;
+	echo 0 > $GPIODIR_GREEN/value;
 	umount /mnt
 	exit 1
 fi
