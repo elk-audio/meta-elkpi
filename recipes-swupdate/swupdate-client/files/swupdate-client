@@ -1,9 +1,15 @@
 #!/bin/sh
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/home/mind/scripts
 
+GPIO=
+GPIODIR=/sys/class/gpio/gpio$GPIO
 DESC="swupdate"
 NAME="swupdate"
 DAEMON=/usr/bin/swupdate
+GPIO_RED=12
+GPIO_GREEN=26
+GPIODIR_RED=/sys/class/gpio/gpio$GPIO_RED
+GPIODIR_GREEN=/sys/class/gpio/gpio$GPIO_GREEN
 
 part=/dev/$1
 
@@ -31,13 +37,19 @@ fi
 
 echo "Update found:"
 echo $highest_swu
-
+sh -c 'notify-swupdate-start &'
 swupdate -v ${selection} -i $highest_swu
 if [ $? -eq 0 ]; then
 	sync
 	echo "swupdate-client: update done"
+	killall notify-swupdate-start
+	echo 0 > $GPIODIR_RED/value;
+        echo 1 > $GPIODIR_GREEN/value;
 else
 	echo "swupdate-client: update failed"
+	killall notify-swupdate-start
+	echo 1 > $GPIODIR_RED/value;
+        echo 0 > $GPIODIR_GREEN/value;
 	umount /mnt
 	exit 1
 fi
