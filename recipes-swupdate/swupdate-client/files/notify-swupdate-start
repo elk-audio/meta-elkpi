@@ -4,8 +4,6 @@ GPIO_GREEN=26
 GPIODIR_RED=/sys/class/gpio/gpio$GPIO_RED
 GPIODIR_GREEN=/sys/class/gpio/gpio$GPIO_GREEN
 
-echo "Configuring GPIO $GPIO"
-
 if [ ! -e "$GPIODIR_RED" ]
 then
 	echo $GPIO_RED > /sys/class/gpio/export
@@ -23,7 +21,6 @@ fi
 echo out > $GPIODIR_RED/direction
 echo out > $GPIODIR_GREEN/direction
 
-echo "Start blinking, 1 sec on plus 1 sec off, press CTRL+C to end"
 while ( true );
 	do echo 1 > $GPIODIR_RED/value;
         echo 1 > $GPIODIR_GREEN/value;
