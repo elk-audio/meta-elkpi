@@ -1,6 +1,6 @@
-PV = "0.9.1+${SRCREV}"
+PV = "0.10.0+${SRCREV}"
 
-SRCREV = "868dd3c1afcea5655c6f93d058978df62dafb08c"
+SRCREV = "b82b9ed98714ebd539a994536838eba9ae5c9120"
 
 EXTRA_OECMAKE += "\
     -DCMAKE_BUILD_TYPE=Release \
@@ -10,6 +10,9 @@ EXTRA_OECMAKE += "\
     -DBUILD_TWINE=FALSE \
     -DXENOMAI_BASE_DIR=${WORKDIR}/recipe-sysroot/usr/xenomai \
     -DWITH_UNIT_TESTS=FALSE \
+    -DWITH_LINK=TRUE \
+    -DWITH_LV2=TRUE \
+    -DWITH_LV2_MDA_TESTS=FALSE \
 "
 
 # Add VST2 support if VST2SDK_PATH variable in local.conf is set and not empty.
