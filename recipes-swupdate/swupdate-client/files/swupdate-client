@@ -50,6 +50,8 @@ else
 	echo 1 > $GPIODIR_RED/value;
 	echo 0 > $GPIODIR_GREEN/value;
 	umount /mnt
+	echo "Restarting swupdate service..."
+	systemctl start swupdate
 	exit 1
 fi
 
