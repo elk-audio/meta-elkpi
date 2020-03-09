@@ -14,6 +14,7 @@ IMAGE_INSTALL += "\
     packagegroup-elk-system-extended \
     packagegroup-elk-libs-extended \
     mda-vst3-plugins \
+    mda-lv2 \
 "
 
 # Add mda-vst2-plugins to the image if VST2SDK_PATH is defined in local.conf
