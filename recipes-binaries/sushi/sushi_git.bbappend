@@ -1,15 +1,6 @@
-DEPENDS += "\
-    grpc \
-    grpc-native \
-    protobuf \
-    protobuf-native \
-    protobuf-c \
-    protobuf-c-native\
-"
+PV = "0.10.0+${SRCREV}"
 
-PV = "0.9.1+${SRCREV}"
-
-SRCREV = "868dd3c1afcea5655c6f93d058978df62dafb08c"
+SRCREV = "b82b9ed98714ebd539a994536838eba9ae5c9120"
 
 EXTRA_OECMAKE += "\
     -DCMAKE_BUILD_TYPE=Release \
@@ -19,10 +10,16 @@ EXTRA_OECMAKE += "\
     -DBUILD_TWINE=FALSE \
     -DXENOMAI_BASE_DIR=${WORKDIR}/recipe-sysroot/usr/xenomai \
     -DWITH_UNIT_TESTS=FALSE \
+    -DWITH_LINK=TRUE \
+    -DWITH_LV2=TRUE \
+    -DWITH_LV2_MDA_TESTS=FALSE \
 "
 
-# To enable vst support set the following variables
-EXTRA_OECMAKE += " -DWITH_VST2=FALSE"
-# EXTRA_OECMAKE += " -DVST2_SDK_PATH=< path to the vst2 sdk in the build machine>"
+# Add VST2 support if VST2SDK_PATH variable in local.conf is set and not empty.
+EXTRA_OECMAKE += "${@bb.utils.contains('VST2SDK_PATH', \
+                 '', \
+                 ' -DWITH_VST2=TRUE -DVST2_SDK_PATH=' + d.getVar('VST2SDK_PATH'), \
+                 ' -DWITH_VST2=FALSE ' \
+                 , d)}"
 
 INSANE_SKIP_${PN} += "dev-deps"

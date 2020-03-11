@@ -46,25 +46,15 @@ This layer depends on:
 ### VST2 Support
 
 By default, mda-vst2 plugins are not installed in the image and SUSHI will not
-have VST2 support enabled. If you have access to the VST2 SDK you can enable both
-in this way:
+have VST2 support enabled. If you have access to the VST2 SDK you can enable
+both by setting the variable `VST2SDK_PATH` in the `local.conf` file to the
+path of the vst2 sdk as follows:
 
-  1. Add mda-vst2 plugins to an image by adding the following line to the
-  image recipe:
+`VST2SDK_PATH = "path/to/the/vst2sdk/in/your/build/machine/"`
 
-```
-IMAGE_INSTALL += "mda-vst2-plugins"
-```
+For example : `VST2SDK_PATH = "/home/user/vstsdk2.4"`
 
-  2. Add VST2 support to SUSHI by editing the
-    [SUSHI](recipes-binaries/sushi/sushi_git.bbappend) recipe, adding the
-    following two lines:
-
-```
-EXTRA_OECMAKE += " -DWITH_VST2=TRUE"
-EXTRA_OECMAKE += " -DVST2_SDK_PATH=path/to/the/vst2sdk/in/your/build/machine"
-```
-
+To disable VST2 support, just define `VST2SDK_PATH` as an empty string.
 ---
 
 # Creating a prodution Elk Audio OS Image for your device

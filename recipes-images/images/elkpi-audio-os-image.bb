@@ -14,10 +14,15 @@ IMAGE_INSTALL += "\
     packagegroup-elk-system-extended \
     packagegroup-elk-libs-extended \
     mda-vst3-plugins \
+    mda-lv2 \
 "
 
-# To install mda-vst2 plugins in the image uncomment the following
-#IMAGE_INSTALL += "mda-vst2-plugins"
+# Add mda-vst2-plugins to the image if VST2SDK_PATH is defined in local.conf
+IMAGE_INSTALL += "${@bb.utils.contains('VST2SDK_PATH', \
+                 '', \
+                 ' mda-vst2-plugins ', \
+                 ' ' \
+                 , d)}"
 
 EXTRA_IMAGE_FEATURES += " ssh-server-openssh package-management"
 IMAGE_ROOTFS_SIZE = "2000000"

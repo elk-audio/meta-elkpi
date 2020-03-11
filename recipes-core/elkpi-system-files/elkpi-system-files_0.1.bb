@@ -8,6 +8,7 @@ SRC_URI = "\
     file://load-drivers \
     file://connect-midi-apps \
     file://change-udata-perms \
+    file://elk_system_utils \
 "
 
 do_install() {
@@ -15,6 +16,7 @@ do_install() {
     install -m 0755 ${WORKDIR}/load-drivers ${D}${bindir}
     install -m 0755 ${WORKDIR}/connect-midi-apps ${D}${bindir}
     install -m 0755 ${WORKDIR}/change-udata-perms ${D}${bindir}
+    install -m 0755 ${WORKDIR}/elk_system_utils ${D}${bindir}
 }
 
 FILES_${PN} = "${bindir}*"

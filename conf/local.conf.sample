@@ -55,3 +55,13 @@ KERNEL_BOOTCMD_raspberrypi3-64 = "booti"
 BBMASK += "meta-elkpi/recipes-images/images/elkpi-audio-os-image-qt.bb"
 BBMASK += "meta-elk/recipes-qt/simple-qt/simple-qt_0.1.bb"
 BBMASK += "meta-elk/recipes-qt/qt/qtbase_git.bbappend"
+
+# By default, mda-vst2 plugins are not installed in the image and SUSHI will not
+# have VST2 support enabled. If you have access to the VST2 SDK you can enable
+# both by setting the variable VST2SDK_PATH to the path of the vst2 sdk as
+# follows:
+# VST2SDK_PATH = "path/to/the/vst2sdk/in/your/build/machine/"
+# For example : VST2SDK_PATH = "/home/user/vstsdk2.4"
+# To disable VST2 support, just define `VST2SDK_PATH` as an empty string.
+
+VST2SDK_PATH = ""
