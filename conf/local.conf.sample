@@ -1,4 +1,8 @@
 MACHINE = "raspberrypi3"
+
+# For Rpi 4, uncomment the line below. It will override the above definition
+# MACHINE = "raspberrypi4-64"
+
 DISTRO = "elk"
 DL_DIR = "${TOPDIR}/../downloads"
 
@@ -33,7 +37,7 @@ EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
 # set the host name of device
 hostname_pn-base-files = "elk-pi"
 
-RPI_KERNEL_DEVICETREE = " \
+RPI_KERNEL_DEVICETREE_raspberrypi3 = " \
     bcm2708-rpi-0-w.dtb \
     bcm2708-rpi-b.dtb \
     bcm2708-rpi-b-plus.dtb \
@@ -43,13 +47,6 @@ RPI_KERNEL_DEVICETREE = " \
     bcm2708-rpi-cm.dtb \
     bcm2710-rpi-cm3.dtb \
     "
-
-# When u-boot is enabled we need to use the "Image" format and the "booti"
-# command to load the kernel
-KERNEL_IMAGETYPE_UBOOT_raspberrypi3-64 = "Image"
-# "zImage" not supported on arm64 and ".gz" images not supported by bootloader yet
-KERNEL_IMAGETYPE_DIRECT_raspberrypi3-64 = "Image"
-KERNEL_BOOTCMD_raspberrypi3-64 = "booti"
 
 # Comment the following for qt image
 BBMASK += "meta-elkpi/recipes-images/images/elkpi-audio-os-image-qt.bb"
