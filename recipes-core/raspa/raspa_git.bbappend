@@ -1,6 +1,6 @@
 # Specific commit and build options of raspa for Elk Pi boards
 PV = "0.1.0+${SRCREV}"
-SRCREV = "ea38a38c893445e4d01d0e7c255cea6e1c8bb694"
+SRCREV = "52b4db4ae6938f77bb4c58753e83b507c422c4a9"
 
 NUM_INPUT_CHANNELS = "6"
 NUM_OUTPUT_CHANNELS = "8"
