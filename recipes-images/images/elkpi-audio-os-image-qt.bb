@@ -4,6 +4,8 @@ HOMEPAGE = "https://github.com/elk-audio/meta-elkpi"
 require recipes-core/images/core-image-minimal-dev.bb
 require elkpi-common.inc
 
+inherit populate_sdk_qt5
+
 IMAGE_INSTALL += "\
     packagegroup-elk-devtools-extended \
     packagegroup-elk-devtools-basic \
