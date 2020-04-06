@@ -33,6 +33,11 @@ The images provided by this layer are :
      ElkPi Kit which contains a reduced subset of packages and tools compared
      to `elkpi-audio-os-image`.
 
+## Compatible Machines
+The layer can build the same image for both RaspberryPi 3 and RaspberryPi 4. By default, the local.conf sets `MACHINE = "raspberrypi3"`
+
+To build for RaspberryPi4 set `MACHINE = "raspberrypi4-64"` in the local.conf.
+
 ## Dependencies
 
 This layer depends on:
