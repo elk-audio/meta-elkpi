@@ -7,6 +7,30 @@ fi
 
 case "$1" in
 
+--set-audio-hat)
+    if [ "$2" = "elk-pi" ]; then
+        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"elk-pi\"' /usr/bin/load-drivers
+    elif [ "$2" = "hifiberry-dac-plus-adc" ]; then
+        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry\"' /usr/bin/load-drivers
+    elif [ "$2" = "hifiberry-dac-plus-adc-pro" ]; then
+        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry-pro\"' /usr/bin/load-drivers
+    else
+        echo "Invalid audio hat $2 specified. Options are :"
+        echo "    1. elk-pi (default)"
+        echo "    2. hifiberry-dac-plus-adc"
+        echo "    3. hifiberry-dac-plus-adc-pro"
+        exit 1
+    fi
+    echo "Using audio hat $2. Please power cycle for changes to take effect.."
+    echo "Note! This is persistent accross boot cycles."
+    ;;
+
+--set-buffer-size)
+    echo "Setting audio buffer size to $2"
+    echo "Note! This is persistent accross boot cycles."
+    sed -i "/AUDIO_BUFFER_SIZE=/c\AUDIO_BUFFER_SIZE=$2" /usr/bin/load-drivers
+    ;;
+
 --reset-boot-count)
     echo "setting boot count to 0 ..."
     mount /dev/mmcblk0p1 /boot
@@ -144,22 +168,41 @@ case "$1" in
     echo ""
     echo ""
     echo "COMMAND"
-    echo "  --reset-boot-count            : Set the boot count environment variable.
+    echo "  --set-audio-hat [hat]         : Change the audio hat used. Default is
+                                  elk-pi. Changes take affect only after a power
+                                  cycle and is persistent across boot cycles.
+                                  Options are:
+                                      1. elk-pi (defualt)
+                                      2. hifiberry-dac-plus-adc
+                                      3. hifiberry-dac-plus-adc-pro
+ 
+  --set-buffer-size [size]      : Set the audio buffer size. Default is 64.
+                                  It should be a power of 2. Changes take affect
+                                  only after a power cycle and is persistent
+                                  across boot cycles.
+ 
+  --reset-boot-count            : Set the boot count environment variable.
+ 
   --usb-speed [1, 2]            : Set the usb speed. Perform a power cycle for
                                   changes to take effect.
+ 
   --default-rootfs [1, 2]       : Set the defualt rootfs partition, which will be
                                   your primary partition. Perform a power cycle
                                   for changes to take effect
+ 
   --ro-rootfs [enable, disable] : Use this to enable or disable read only permissions
                                   permanently for the current rootfs partition.
                                   Perform a power cycle for changes to
                                   take effect.
+ 
   --remount-as-ro               : Use this to mount current rootfs partition as
                                   ro. This will not persist across boot cycles.
                                   Use --ro-rootfs enable for that instead.
+ 
   --remount-as-rw               : Use this to mount current rootfs partition as
                                   rw. This will not persist across boot cycles.
                                   Use --ro-rootfs disable for that instead.
+ 
   --set-cpu-speed [min, max]    : Use this to set the cpu speed to either minimum
                                   or max(default). This will persist accross
                                   boot cycles but not after a SW Update. To see
