@@ -22,12 +22,12 @@ case "$1" in
         exit 1
     fi
     echo "Using audio hat $2. Please power cycle for changes to take effect.."
-    echo "Note! This is persistent accross boot cycles."
+    echo "Note! This is persistent accross boot cycles but not after software update."
     ;;
 
 --set-buffer-size)
-    echo "Setting audio buffer size to $2"
-    echo "Note! This is persistent accross boot cycles."
+    echo "Setting audio buffer size to $2. Please power cycle the board for changes to take affect"
+    echo "Note! This is persistent accross boot cycles but not after software update."
     sed -i "/AUDIO_BUFFER_SIZE=/c\AUDIO_BUFFER_SIZE=$2" /usr/bin/load-drivers
     ;;
 
@@ -170,7 +170,8 @@ case "$1" in
     echo "COMMAND"
     echo "  --set-audio-hat [hat]         : Change the audio hat used. Default is
                                   elk-pi. Changes take affect only after a power
-                                  cycle and is persistent across boot cycles.
+                                  cycle and is persistent across boot cycles,
+                                  but not after a software update.
                                   Options are:
                                       1. elk-pi (defualt)
                                       2. hifiberry-dac-plus-adc
@@ -179,7 +180,8 @@ case "$1" in
   --set-buffer-size [size]      : Set the audio buffer size. Default is 64.
                                   It should be a power of 2. Changes take affect
                                   only after a power cycle and is persistent
-                                  across boot cycles.
+                                  across boot cycles but not after a
+                                  software update.
  
   --reset-boot-count            : Set the boot count environment variable.
  
