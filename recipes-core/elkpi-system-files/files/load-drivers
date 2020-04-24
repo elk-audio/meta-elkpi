@@ -1,6 +1,19 @@
 #!/bin/bash
-modprobe shiftreg_rtdm adc_chans_per_tick=4
-modprobe audio_rtdm audio_buffer_size=64
+
+# To chose a different elk hat, modify the line below and reboot the board for
+# changes to take effect
+# Supported audio hats:
+# - elk-pi
+# - hifi-berry
+# - hifi-berry-pro
+AUDIO_HAT="elk-pi"
+AUDIO_BUFFER_SIZE=64
+modprobe audio_rtdm audio_buffer_size=$AUDIO_BUFFER_SIZE audio_hat=$AUDIO_HAT
+
+if [ $AUDIO_HAT = "elk-pi" ]; then
+    modprobe shiftreg_rtdm adc_chans_per_tick=4
+fi
+
 modprobe i2c_dev
 rfkill unblock all
 
