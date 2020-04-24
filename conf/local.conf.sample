@@ -26,7 +26,8 @@ PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 CONF_VERSION = "1"
 
 SECURITY_STRINGFORMAT = "-Wformat -Wformat-security"
-CMDLINE_append = " dwc_otg.speed=1"
+CMDLINE_append_raspberrypi3 = " xenomai.allowed_group=2004 dwc_otg.speed=1"
+CMDLINE_append_raspberrypi4-64 = " xenomai.allowed_group=2004"
 
 INHERIT += "rm_work"
 ENABLE_UART = "1"
@@ -34,6 +35,7 @@ RPI_USE_U_BOOT = "1"
 SERIAL_CONSOLES = "ttyS0,57600"
 EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
 
+KERNEL_IMAGETYPE_raspberrypi4-64 = "Image.gz"
 # set the host name of device
 hostname_pn-base-files = "elk-pi"
 
