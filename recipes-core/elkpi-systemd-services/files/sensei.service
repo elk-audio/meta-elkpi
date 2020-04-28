@@ -1,13 +1,17 @@
 [Unit]
 Description=sensei starting service
-After=sushi.service
-ConditionPathExists=/dev/rtdm/audio_rtdm
+After=load-drivers.service
+ConditionPathExists=/dev/rtdm/shiftreg_rtdm
 
 [Service]
 Type=simple
 RemainAfterExit=yes
 WorkingDirectory=/udata/
-ExecStart=/usr/bin/sensei -f # need to specify config file here
+Environment=LD_LIBRARY_PATH=/usr/xenomai/lib
+
+# You can use your custom sensei config file by editing the following line
+ExecStart=/usr/bin/sensei -f /usr/share/sensei/blackboard.json
+
 User=mind
 
 [Install]
