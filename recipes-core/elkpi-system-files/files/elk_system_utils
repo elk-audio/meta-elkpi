@@ -23,7 +23,7 @@ case "$1" in
         exit 1
     fi
     echo "Using audio hat $HAT_NAME. Please power cycle for changes to take effect.."
-    echo "Note! This is persistent accross boot cycles but not after software update."
+    echo "Note! This is persistent across boot cycles but not after software update."
     ;;
 
 --set-buffer-size)
@@ -171,7 +171,7 @@ case "$1" in
                                   cycle and is persistent across boot cycles,
                                   but not after a software update.
                                   Options are:
-                                      1. elk-pi (defualt)
+                                      1. elk-pi (default)
                                       2. hifiberry-dac-plus-adc
                                       3. hifiberry-dac-plus-adc-pro
  
