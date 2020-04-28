@@ -11,4 +11,5 @@ RDEPENDS_packagegroup-elkpi-system-pkgs = "\
     swupdate \
     swupdate-client \
     swupdate-www \
+    elkpi-blackboard \
 "
