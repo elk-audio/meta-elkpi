@@ -43,6 +43,12 @@ case "$1" in
     ;;
 
 --usb-speed)
+    if cat /sys/firmware/devicetree/base/model | grep -q "Raspberry Pi 4"
+    then
+        echo "Error : This option is available only for Raspberry Pi3!"
+        exit 1
+    fi
+
     if [ "$2" -ne "1" ]; then
         if [ "$2" -ne "2" ]; then
             echo "Invalid usb speed $2"
@@ -184,7 +190,8 @@ case "$1" in
   --reset-boot-count            : Set the boot count environment variable.
  
   --usb-speed [1, 2]            : Set the usb speed. Perform a power cycle for
-                                  changes to take effect.
+                                  changes to take effect. Note that this option
+                                  only applies for RaspberrPi 3 Models.
  
   --default-rootfs [1, 2]       : Set the defualt rootfs partition, which will be
                                   your primary partition. Perform a power cycle
