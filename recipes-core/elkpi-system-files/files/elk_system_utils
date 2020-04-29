@@ -17,9 +17,9 @@ case "$1" in
         sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry-pro\"' /usr/bin/load-drivers
     else
         echo "Invalid audio hat $HAT_NAME specified. Options are :"
-        echo "    1. elk-pi (default)"
-        echo "    2. hifiberry-dac-plus-adc"
-        echo "    3. hifiberry-dac-plus-adc-pro"
+        echo "    - elk-pi (default)"
+        echo "    - hifiberry-dac-plus-adc"
+        echo "    - hifiberry-dac-plus-adc-pro"
         exit 1
     fi
     echo "Using audio hat $HAT_NAME. Please power cycle for changes to take effect.."
@@ -176,10 +176,10 @@ case "$1" in
                                   elk-pi. Changes take affect only after a power
                                   cycle and is persistent across boot cycles,
                                   but not after a software update.
-                                  Options are:
-                                      1. elk-pi (default)
-                                      2. hifiberry-dac-plus-adc
-                                      3. hifiberry-dac-plus-adc-pro
+                                  Options for [hat] are:
+                                      - elk-pi (default)
+                                      - hifiberry-dac-plus-adc
+                                      - hifiberry-dac-plus-adc-pro
  
   --set-buffer-size [size]      : Set the audio buffer size. Default is 64.
                                   It should be a power of 2. Changes take affect
