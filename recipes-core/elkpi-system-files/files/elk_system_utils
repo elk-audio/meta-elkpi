@@ -8,27 +8,29 @@ fi
 case "$1" in
 
 --set-audio-hat)
-    if [ "$2" = "elk-pi" ]; then
+    HAT_NAME=$2
+    if [ "$HAT_NAME" = "elk-pi" ]; then
         sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"elk-pi\"' /usr/bin/load-drivers
-    elif [ "$2" = "hifiberry-dac-plus-adc" ]; then
+    elif [ "$HAT_NAME" = "hifiberry-dac-plus-adc" ]; then
         sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry\"' /usr/bin/load-drivers
-    elif [ "$2" = "hifiberry-dac-plus-adc-pro" ]; then
+    elif [ "$HAT_NAME" = "hifiberry-dac-plus-adc-pro" ]; then
         sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry-pro\"' /usr/bin/load-drivers
     else
-        echo "Invalid audio hat $2 specified. Options are :"
+        echo "Invalid audio hat $HAT_NAME specified. Options are :"
         echo "    1. elk-pi (default)"
         echo "    2. hifiberry-dac-plus-adc"
         echo "    3. hifiberry-dac-plus-adc-pro"
         exit 1
     fi
-    echo "Using audio hat $2. Please power cycle for changes to take effect.."
-    echo "Note! This is persistent accross boot cycles but not after software update."
+    echo "Using audio hat $HAT_NAME. Please power cycle for changes to take effect.."
+    echo "Note! This is persistent across boot cycles but not after software update."
     ;;
 
 --set-buffer-size)
-    echo "Setting audio buffer size to $2. Please power cycle the board for changes to take affect"
+    NEW_BUFFER_SIZE=$2
+    echo "Setting audio buffer size to $NEW_BUFFER_SIZE. Please power cycle the board for changes to take affect"
     echo "Note! This is persistent accross boot cycles but not after software update."
-    sed -i "/AUDIO_BUFFER_SIZE=/c\AUDIO_BUFFER_SIZE=$2" /usr/bin/load-drivers
+    sed -i "/AUDIO_BUFFER_SIZE=/c\AUDIO_BUFFER_SIZE=$NEW_BUFFER_SIZE" /usr/bin/load-drivers
     ;;
 
 --reset-boot-count)
@@ -59,13 +61,13 @@ case "$1" in
     mount /dev/mmcblk0p1 /boot
     sleep 1
     if [ "$2" -eq "2" ]; then
-        fw_setenv set_boot_args "if test \"\${default_part}\" = \"0\" ;then setenv bootargs 8250.nr_uarts=1 cma=256M  vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0 dwc_otg.lpm_enable=0 console=ttyS0,57600 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait xenomai.allowed_group=2004; setenv kimage uImage0; else setenv bootargs 8250.nr_uarts=1 cma=256M  vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0 dwc_otg.lpm_enable=0 console=ttyS0,57600 root=/dev/mmcblk0p3 rootfstype=ext4 rootwait xenomai.allowed_group=2004; setenv kimage uImage1; fi"
-        sync
+        fw_setenv dwc_otg_speed ' '
+	sync
         sleep 1
         umount /boot
     exit 0;
     fi
-    fw_setenv set_boot_args "if test \"\${default_part}\" = \"0\" ;then setenv bootargs 8250.nr_uarts=1 cma=256M  vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0 dwc_otg.lpm_enable=0 console=ttyS0,57600 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait xenomai.allowed_group=2004 dwc_otg.speed=$2; setenv kimage uImage0; else setenv bootargs 8250.nr_uarts=1 cma=256M  vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0 dwc_otg.lpm_enable=0 console=ttyS0,57600 root=/dev/mmcblk0p3 rootfstype=ext4 rootwait xenomai.allowed_group=2004 dwc_otg.speed=$2; setenv kimage uImage1; fi"
+    fw_setenv dwc_otg_speed 'dwc_otg.speed=1'
     sync
     sleep 1
     umount /boot
@@ -74,24 +76,22 @@ case "$1" in
     ;;
 
 --default-rootfs)
-    if [ "$2" -ne "1" ]; then
-        if [ "$2" -ne "2" ]; then
-            echo "Invalid rootfs partition number $2"
-            exit 1;
-        fi
-    fi
-
-    echo "setting default rootfs partition to $2 ..."
-    mount /dev/mmcblk0p1 /boot
+    mount /dev/mmcblk0p1 /boot && sync
     sleep 1
 
-    if [ "$2" -eq "1" ]; then
+    DEFAULT_ROOTFS_PART=$2
+    if [ "$DEFAULT_ROOTFS_PART" -eq "1" ]; then
         fw_setenv default_part "0" && sync
         fw_setenv fallback_part "1" && sync
-    else
+    elif [ "$DEFAULT_ROOTFS_PART" -eq "2" ]; then
         fw_setenv default_part "1" && sync
         fw_setenv fallback_part "0" && sync
+    else
+        echo "Invalid rootfs partition number $DEFAULT_ROOTFS_PART"
+        sync && umount /boot
+        exit 1;
     fi
+    echo "setting default rootfs partition to $DEFAULT_ROOTFS_PART ..."
     fw_setenv boot_count "0" && sync
     sleep 1
     umount /boot
@@ -177,7 +177,7 @@ case "$1" in
                                   cycle and is persistent across boot cycles,
                                   but not after a software update.
                                   Options are:
-                                      1. elk-pi (defualt)
+                                      1. elk-pi (default)
                                       2. hifiberry-dac-plus-adc
                                       3. hifiberry-dac-plus-adc-pro
  
@@ -219,3 +219,4 @@ case "$1" in
     ;;
 
 esac
+
