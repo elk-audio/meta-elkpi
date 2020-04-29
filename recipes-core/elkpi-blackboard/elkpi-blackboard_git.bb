@@ -11,7 +11,7 @@ S = "${WORKDIR}/git/blackboard/common-files"
 
 SENSEI_CONFIG_DIR = "${datadir}/sensei"
 FONTS_DIR = "${datadir}/fonts/ttf"
-ELK_UI_DIR = "${libdir}/python3.7/site-packages/"
+ELK_UI_DIR = "${libdir}/python3.7/site-packages"
 
 do_install() {
     install -d ${D}${SENSEI_CONFIG_DIR}
