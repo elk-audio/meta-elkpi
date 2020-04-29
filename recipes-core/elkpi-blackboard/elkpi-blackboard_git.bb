@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-3.0;md5=c7
 
 SRC_URI = "git://github.com/elk-audio/elk-examples;protocol=https;nobranch=1"
 
-SRCREV = "85271f84e0dcbb984ee7b73e6e103d16568366a4"
+SRCREV = "5518ebe82f59a348fdc4d180756ed90f5c00e71e"
 
 S = "${WORKDIR}/git/blackboard/common-files"
 
