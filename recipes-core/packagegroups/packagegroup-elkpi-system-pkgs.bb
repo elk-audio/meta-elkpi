@@ -9,7 +9,8 @@ inherit packagegroup
 RDEPENDS_packagegroup-elkpi-system-pkgs = "\
     elkpi-systemd-services \
     swupdate \
-    swupdate-client \
+    swupdate-usb \
+    swupdate-rpi-client \
     swupdate-www \
     elkpi-blackboard \
 "
