@@ -16,6 +16,11 @@ IMAGE_INSTALL += "\
 
 IMAGE_INSTALL_remove = " dropbear"
 
+TOOLCHAIN_HOST_TASK += "\
+    nativesdk-grpc \
+    nativesdk-grpc-dev \
+"
+
 # Set permissions for mind user for home/mind
 set_special_permissions () {
     chown -R mind ${IMAGE_ROOTFS}/home/mind
