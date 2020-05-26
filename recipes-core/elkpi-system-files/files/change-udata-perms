@@ -1,6 +1,0 @@
-#!/bin/bash
-echo "Changing udata perms to user"
-chown -R mind:mind /udata
-rm -f /udata/change_perms
-rm -rf /udata/.elk-system/var
-sync
