@@ -10,11 +10,11 @@ case "$1" in
 --set-audio-hat)
     HAT_NAME=$2
     if [ "$HAT_NAME" = "elk-pi" ]; then
-        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"elk-pi\"' /usr/bin/load-drivers
+        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"elk-pi\"' /udata/.elk-system/elk-system.conf
     elif [ "$HAT_NAME" = "hifiberry-dac-plus-adc" ]; then
-        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry\"' /usr/bin/load-drivers
+        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry\"' /udata/.elk-system/elk-system.conf
     elif [ "$HAT_NAME" = "hifiberry-dac-plus-adc-pro" ]; then
-        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry-pro\"' /usr/bin/load-drivers
+        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry-pro\"' /udata/.elk-system/elk-system.conf
     else
         echo "Invalid audio hat $HAT_NAME specified. Options are :"
         echo "    - elk-pi (default)"
@@ -30,7 +30,7 @@ case "$1" in
     NEW_BUFFER_SIZE=$2
     echo "Setting audio buffer size to $NEW_BUFFER_SIZE. Please power cycle the board for changes to take affect"
     echo "Note! This is persistent accross boot cycles but not after software update."
-    sed -i "/AUDIO_BUFFER_SIZE=/c\AUDIO_BUFFER_SIZE=$NEW_BUFFER_SIZE" /usr/bin/load-drivers
+    sed -i "/AUDIO_BUFFER_SIZE=/c\AUDIO_BUFFER_SIZE=$NEW_BUFFER_SIZE" /udata/.elk-system/elk-system.conf
     ;;
 
 --reset-boot-count)
@@ -149,10 +149,10 @@ case "$1" in
     echo userspace > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     if [ "$2" = "min" ]; then
         cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq > /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed
-        sed -i 's/max/min/g' /usr/bin/load-drivers
+        sed -i 's/max/min/g' /udata/.elk-system/elk-system.conf
     elif [ "$2" = "max" ]; then
         cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq > /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed
-        sed -i 's/min/max/g' /usr/bin/load-drivers
+        sed -i 's/min/max/g' /udata/.elk-system/elk-system.conf
     else
         echo "Invalid CPU Speed specified! Arguments are [min] or [max]."
         exit 1;
