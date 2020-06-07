@@ -1,17 +1,15 @@
 SYSTEMD_DEFAULT_TARGET = "custom-elk.target"
-IMAGE_FEATURES += "package-management"
 
 IMAGE_LINGUAS += "en-us"
 
 IMAGE_INSTALL += "\
-    glibc-utils \
-    localedef \
+    packagegroup-elk-applications \
     packagegroup-elk-libs-basic \
     packagegroup-elk-system-basic \
-    packagegroup-elk-applications \
     packagegroup-elk-raspberrypi-system-pkgs \
     packagegroup-elkpi-apps-basic \
-    packagegroup-elkpi-system-pkgs \
+    packagegroup-elkpi-system-basic-pkgs \
+    packagegroup-elk-python-basic \
 "
 
 IMAGE_INSTALL_remove = " dropbear"
@@ -28,14 +26,6 @@ set_special_permissions () {
 }
 
 ROOTFS_POSTPROCESS_COMMAND += "set_special_permissions; "
-
-# set sudo permisions fr mind user.
-set_sudo_permissions () {
-    # Give sudo permission for users
-    sed -i 's/# %sudo/%sudo/' ${IMAGE_ROOTFS}/etc/sudoers
-}
-
-ROOTFS_POSTPROCESS_COMMAND += "set_sudo_permissions; "
 
 # Function which prerares the dual rootfs and udata partitions for the final image
 do_wic_image_prepare() {
