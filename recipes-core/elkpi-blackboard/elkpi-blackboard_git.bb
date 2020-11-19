@@ -15,19 +15,18 @@ ELK_UI_DIR = "${libdir}/python3.7/site-packages"
 
 do_install() {
     install -d ${D}${SENSEI_CONFIG_DIR}
-    install -d ${D}${FONTS_DIR}
     install -d ${D}${ELK_UI_DIR}
 
     install -m 0644 sensei_config.json ${D}${SENSEI_CONFIG_DIR}/blackboard.json
-    install -m 0644 LiberationMono-Regular.ttf ${D}${FONTS_DIR}/
     install -m 0644 elk_ui.py ${D}${ELK_UI_DIR}/
 }
 
 FILES_${PN} += "\
     ${SENSEI_CONFIG_DIR} \
     ${SENSEI_CONFIG_DIR}/* \
-    ${FONTS_DIR} \
-    ${FONTS_DIR}/* \
     ${ELK_UI_DIR} \
     ${ELK_UI_DIR}/* \
 "
+
+RDEPENDS_${PN} += " liberation-fonts"
+

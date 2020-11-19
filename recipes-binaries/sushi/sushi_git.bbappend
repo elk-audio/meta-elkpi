@@ -1,6 +1,6 @@
 PV = "0.10.3+${SRCREV}"
 
-SRCREV = "4af132ddbd9240cf70d41a876abba5aace894735"
+SRCREV = "6d037d58b7bb2712ad8f5154b3c57bf841e2e4fc"
 
 EXTRA_OECMAKE += "\
     -DCMAKE_BUILD_TYPE=Release \
@@ -23,3 +23,4 @@ EXTRA_OECMAKE += "${@bb.utils.contains('VST2SDK_PATH', \
                  , d)}"
 
 INSANE_SKIP_${PN} += "dev-deps"
+
