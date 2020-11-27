@@ -9,23 +9,23 @@ SRCREV = "5518ebe82f59a348fdc4d180756ed90f5c00e71e"
 
 S = "${WORKDIR}/git/blackboard/common-files"
 
+inherit python3-dir
+
 SENSEI_CONFIG_DIR = "${datadir}/sensei"
 FONTS_DIR = "${datadir}/fonts/ttf"
-ELK_UI_DIR = "${libdir}/python3.7/site-packages"
 
 do_install() {
     install -d ${D}${SENSEI_CONFIG_DIR}
-    install -d ${D}${ELK_UI_DIR}
+    install -d ${D}${PYTHON_SITEPACKAGES_DIR}
 
     install -m 0644 sensei_config.json ${D}${SENSEI_CONFIG_DIR}/blackboard.json
-    install -m 0644 elk_ui.py ${D}${ELK_UI_DIR}/
+    install -m 0644 elk_ui.py ${D}${PYTHON_SITEPACKAGES_DIR}/
 }
 
 FILES_${PN} += "\
     ${SENSEI_CONFIG_DIR} \
     ${SENSEI_CONFIG_DIR}/* \
-    ${ELK_UI_DIR} \
-    ${ELK_UI_DIR}/* \
+    ${PYTHON_SITEPACKAGES_DIR}/* \
 "
 
 RDEPENDS_${PN} += " liberation-fonts"
