@@ -1,5 +1,3 @@
-#MACHINE = "raspberrypi3"
-
 # For Rpi 4, uncomment the line below. It will override the above definition
 MACHINE = "raspberrypi4-64"
 

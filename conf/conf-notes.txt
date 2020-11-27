@@ -1,7 +1,7 @@
 
 ###############################################################
 
-Elk Audio OS Images for Elk Pi board on RaspberryPi 3b+
+Elk Audio OS Images for Elk Pi board on RaspberryPi 4
 
 ###############################################################
 
