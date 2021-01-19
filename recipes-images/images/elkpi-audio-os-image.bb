@@ -37,7 +37,7 @@ IMAGE_INSTALL += "${@bb.utils.contains('VST2SDK_PATH', \
                  ' ' \
                  , d)}"
 
-EXTRA_IMAGE_FEATURES += " ssh-server-openssh package-management"
+EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
 IMAGE_ROOTFS_SIZE = "2000000"
 SDIMG_ROOTFS_TYPE = "ext4"
 IMAGE_FSTYPES = "wic ext4.gz"
