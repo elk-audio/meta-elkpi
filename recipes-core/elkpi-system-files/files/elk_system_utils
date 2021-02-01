@@ -28,8 +28,16 @@ case "$1" in
 
 --set-buffer-size)
     NEW_BUFFER_SIZE=$2
-    echo "Setting audio buffer size to $NEW_BUFFER_SIZE. Please power cycle the board for changes to take affect"
-    echo "Note! This is persistent accross boot cycles but not after software update."
+
+    HAT_NAME=`cat /sys/class/audio_rtdm/audio_hat`
+    if [ "$HAT_NAME" = "elkpi" ]; then
+        echo "Setting audio buffer size to $NEW_BUFFER_SIZE. Please power cycle the board for changes to take affect"
+        echo "Note! This is persistent accross boot cycles but not after software update."
+    else
+        echo $NEW_BUFFER_SIZE > /sys/class/audio_rtdm/audio_buffer_size
+        echo "Setting audio buffer size to $NEW_BUFFER_SIZE. Changes will take effect only from the next time SUSHI is run."
+        echo "Note! This is persistent accross boot cycles but not after software update."
+    fi
     sed -i "/AUDIO_BUFFER_SIZE=/c\AUDIO_BUFFER_SIZE=$NEW_BUFFER_SIZE" /udata/.elk-system/elk-system.conf
     ;;
 
