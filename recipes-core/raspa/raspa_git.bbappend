@@ -1,5 +1,5 @@
 # Specific commit and build options of raspa for Elk Pi boards
-PV = "0.2.0+${SRCREV}"
+PV = "0.1.2+${SRCREV}"
 SRCREV = "505e53582d97922a5571f0f8da74a85aaef1e683"
 
 EXTRA_OECMAKE += "\
