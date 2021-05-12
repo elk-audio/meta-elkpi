@@ -28,10 +28,10 @@ case "$1" in
 
 --set-buffer-size)
     NEW_BUFFER_SIZE=$2
-    SUPPORTED_BUFFER_SIZES="16, 32, 64, 128"
+    SUPPORTED_BUFFER_SIZES="32, 64, 128"
 
     case $NEW_BUFFER_SIZE in
-    "16" | "32" | "64" | "128")
+    "32" | "64" | "128")
         ;;
     *)
         echo "Invalid buffer size of $NEW_BUFFER_SIZE. Supported buffer sizes are $SUPPORTED_BUFFER_SIZES."
