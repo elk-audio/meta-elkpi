@@ -1,7 +1,7 @@
 SUMMARY = "Install Elk BlackBoard related files in the system"
 HOMEPAGE = "https://github.com/elk-audio/elk-examples"
 LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-3.0;md5=c79ff39f19dfec6d293b95dea7b07891"
+LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-3.0-only;md5=c79ff39f19dfec6d293b95dea7b07891"
 
 SRC_URI = "git://github.com/elk-audio/elk-examples;protocol=https;nobranch=1"
 

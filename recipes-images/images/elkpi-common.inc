@@ -3,7 +3,6 @@ SYSTEMD_DEFAULT_TARGET = "custom-elk.target"
 IMAGE_LINGUAS += "en-us"
 
 IMAGE_INSTALL += "\
-    packagegroup-elk-applications \
     packagegroup-elk-libs-basic \
     packagegroup-elk-system-basic \
     packagegroup-elk-raspberrypi-system-pkgs \
@@ -37,7 +36,6 @@ do_wic_image_prepare() {
     rm -f ${DEPLOY_DIR_IMAGE}/change_perms
 
     bzip2 -c ${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.wic > ${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.wic.bz2
-    rm -f ${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.wic
 }
 
 addtask wic_image_prepare after do_image_complete before do_rm_work

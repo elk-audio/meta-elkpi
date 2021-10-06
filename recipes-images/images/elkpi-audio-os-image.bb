@@ -9,7 +9,6 @@ IMAGE_FEATURES += "package-management"
 IMAGE_INSTALL += "\
     glibc-utils \
     localedef \
-    packagegroup-elk-applications \
     packagegroup-elk-devtools-extended \
     packagegroup-elk-devtools-basic \
     packagegroup-elk-python-basic \
@@ -19,8 +18,6 @@ IMAGE_INSTALL += "\
     packagegroup-elk-system-extended \
     packagegroup-elkpi-system-extended-pkgs \
     packagegroup-elk-libs-extended \
-    mda-vst3-plugins \
-    mda-lv2 \
 "
 # set sudo permisions fr mind user.
 set_sudo_permissions () {

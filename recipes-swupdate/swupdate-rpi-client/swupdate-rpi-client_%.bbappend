@@ -2,11 +2,11 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI += "\
     file://swupdate-rpi-client \
-    file://sw_version \
     file://notify-swupdate-start \
 "
 
 do_install_append() {
+    echo "${SWU_VERSION}" >>${WORKDIR}/sw_version
     install -d ${D}/www
     install -m 0755 ${WORKDIR}/swupdate-rpi-client ${D}${bindir}
     install -m 0755 ${WORKDIR}/notify-swupdate-start ${D}${bindir}
@@ -15,3 +15,4 @@ do_install_append() {
 }
 
 FILES_${PN} += "/www"
+

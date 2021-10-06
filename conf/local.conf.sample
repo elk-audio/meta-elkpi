@@ -22,6 +22,7 @@ do_image_complete[deptask] += "do_populate_lic"
 PACKAGECONFIG_append_pn-qemu-native = " sdl"
 PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 CONF_VERSION = "1"
+SWU_VERSION = "0.11.0"
 
 SECURITY_STRINGFORMAT = "-Wformat -Wformat-security"
 
