@@ -3,6 +3,7 @@ SYSTEMD_DEFAULT_TARGET = "custom-elk.target"
 IMAGE_LINGUAS += "en-us"
 
 IMAGE_INSTALL += "\
+    packagegroup-elk-applications \
     packagegroup-elk-libs-basic \
     packagegroup-elk-system-basic \
     packagegroup-elk-raspberrypi-system-pkgs \

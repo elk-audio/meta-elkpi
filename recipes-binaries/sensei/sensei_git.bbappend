@@ -1,6 +1,6 @@
 DEPENDS += "xenomai-lib"
 PV = "0.2.0+${SRCREV}"
-SRCREV = "c2c82cd2ebd29cce48923ab43513a1df6d1ed381"
+SRCREV = "d4f93e7d6b58d0cd1a9421bfa7033f0e839f1ff7"
 
 EXTRA_OECMAKE = "\
     -DCMAKE_BUILD_TYPE=Release \
