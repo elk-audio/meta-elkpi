@@ -1,6 +1,7 @@
 # Specific commit and build options of raspa for Elk Pi boards
-PV = "0.1.2+${SRCREV}"
-SRCREV = "505e53582d97922a5571f0f8da74a85aaef1e683"
+SRC_URI = "gitsm://git@bitbucket.org/mindswteam/raspalib-elk.git;protocol=ssh;nobranch=1"
+PV = "0.1.4+${SRCREV}"
+SRCREV = "a813661300a5a3876c7e550ae1e2613fca6e0d7f"
 
 EXTRA_OECMAKE += "\
     -DCMAKE_BUILD_TYPE=Release \
@@ -11,3 +12,4 @@ EXTRA_OECMAKE += "\
     -DXENOMAI_BASE_DIR=${WORKDIR}/recipe-sysroot/usr/xenomai \
     -DWITH_UNIT_TESTS=FALSE \
 "
+

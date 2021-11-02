@@ -9,6 +9,7 @@ IMAGE_FEATURES += "package-management"
 IMAGE_INSTALL += "\
     glibc-utils \
     localedef \
+    packagegroup-elk-applications \
     packagegroup-elk-devtools-extended \
     packagegroup-elk-devtools-basic \
     packagegroup-elk-python-basic \

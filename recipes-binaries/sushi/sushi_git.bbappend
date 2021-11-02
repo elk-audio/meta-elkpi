@@ -1,6 +1,6 @@
 PV = "0.11.0+${SRCREV}"
 
-SRCREV = "8c1ce6e369aaa29496234e004f35e017c786cdea"
+SRCREV = "4bf45cd0c3c0ee7c4d983c4fbb51c96bfb2ab659"
 
 EXTRA_OECMAKE += "\
     -DCMAKE_BUILD_TYPE=Release \
