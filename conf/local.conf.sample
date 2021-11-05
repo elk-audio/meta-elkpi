@@ -22,14 +22,21 @@ do_image_complete[deptask] += "do_populate_lic"
 PACKAGECONFIG_append_pn-qemu-native = " sdl"
 PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 CONF_VERSION = "1"
-SWU_VERSION = "0.11.0"
 
 SECURITY_STRINGFORMAT = "-Wformat -Wformat-security"
+
+RPI_KERNEL_DEVICETREE_remove = "broadcom/bcm2711-rpi-400.dtb broadcom/bcm2711-rpi-cm4.dtb"
+RPI_KERNEL_DEVICETREE_OVERLAYS_remove = "overlays/vc4-kms-dsi-7inch.dtbo"
 
 INHERIT += "rm_work"
 ENABLE_UART = "1"
 RPI_USE_U_BOOT = "1"
 SERIAL_CONSOLES = "ttyS0,57600"
+# set the host name of device
+SWU_VERSION = "0.11.0"
+
+VST2SDK_PATH = ""
+LICENSE_FLAGS_WHITELIST += "commercial"
 EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
 ELK_HAT_NAME = "elk-pi"
 KERNEL_IMAGETYPE_raspberrypi4-64 = "Image.gz"
@@ -40,7 +47,6 @@ hostname_pn-base-files = "elk-pi"
 BBMASK += "meta-elkpi/recipes-images/images/elkpi-audio-os-image-qt.bb"
 BBMASK += "meta-elk/recipes-qt/simple-qt/simple-qt_0.1.bb"
 BBMASK += "meta-elk/recipes-qt/qt/qtbase_git.bbappend"
-VST2SDK_PATH = ""
 #BBMASK += "meta-raspberrypi/recipes-kernel/linux/linux-raspberrypi_5.4.bb"
 # By default, mda-vst2 plugins are not installed in the image and SUSHI will not
 # have VST2 support enabled. If you have access to the VST2 SDK you can enable
@@ -49,6 +55,7 @@ VST2SDK_PATH = ""
 # VST2SDK_PATH = "path/to/the/vst2sdk/in/your/build/machine/"
 # For example : VST2SDK_PATH = "/home/user/vstsdk2.4"
 # To disable VST2 support, just define `VST2SDK_PATH` as an empty string.
+
 # To generate sdk with x11 libs
 #IMAGE_INSTALL_append = " packagegroup-core-x11 \
 # libxcursor libxcursor-dev \
