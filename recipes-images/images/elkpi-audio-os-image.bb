@@ -20,7 +20,6 @@ IMAGE_INSTALL += "\
     packagegroup-elkpi-system-extended-pkgs \
     packagegroup-elk-libs-extended \
     mda-vst3-plugins \
-    mda-lv2 \
 "
 # set sudo permisions fr mind user.
 set_sudo_permissions () {
