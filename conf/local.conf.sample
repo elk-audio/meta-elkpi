@@ -40,6 +40,7 @@ hostname_pn-base-files = "elk-pi"
 BBMASK += "meta-elkpi/recipes-images/images/elkpi-audio-os-image-qt.bb"
 BBMASK += "meta-elk/recipes-qt/simple-qt/simple-qt_0.1.bb"
 BBMASK += "meta-elk/recipes-qt/qt/qtbase_git.bbappend"
+VST2SDK_PATH = ""
 #BBMASK += "meta-raspberrypi/recipes-kernel/linux/linux-raspberrypi_5.4.bb"
 # By default, mda-vst2 plugins are not installed in the image and SUSHI will not
 # have VST2 support enabled. If you have access to the VST2 SDK you can enable
