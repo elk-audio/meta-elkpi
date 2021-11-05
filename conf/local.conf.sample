@@ -36,17 +36,6 @@ KERNEL_IMAGETYPE_raspberrypi4-64 = "Image.gz"
 # set the host name of device
 hostname_pn-base-files = "elk-pi"
 
-RPI_KERNEL_DEVICETREE_raspberrypi3 = " \
-    bcm2708-rpi-0-w.dtb \
-    bcm2708-rpi-b.dtb \
-    bcm2708-rpi-b-plus.dtb \
-    bcm2709-rpi-2-b.dtb \
-    bcm2710-rpi-3-b.dtb \
-    bcm2710-rpi-3-b-plus.dtb \
-    bcm2708-rpi-cm.dtb \
-    bcm2710-rpi-cm3.dtb \
-    "
-
 # Comment the following for qt image
 BBMASK += "meta-elkpi/recipes-images/images/elkpi-audio-os-image-qt.bb"
 BBMASK += "meta-elk/recipes-qt/simple-qt/simple-qt_0.1.bb"
@@ -59,3 +48,8 @@ BBMASK += "meta-elk/recipes-qt/qt/qtbase_git.bbappend"
 # VST2SDK_PATH = "path/to/the/vst2sdk/in/your/build/machine/"
 # For example : VST2SDK_PATH = "/home/user/vstsdk2.4"
 # To disable VST2 support, just define `VST2SDK_PATH` as an empty string.
+# To generate sdk with x11 libs
+#IMAGE_INSTALL_append = " packagegroup-core-x11 \
+# libxcursor libxcursor-dev \
+# libxinerama libxinerama-dev \
+# "
