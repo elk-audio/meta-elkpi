@@ -1,5 +1,5 @@
 DEPENDS += "xenomai-lib"
-PV = "0.2.0+${SRCREV}"
+PV = "0.3.0+${SRCREV}"
 SRCREV = "d4f93e7d6b58d0cd1a9421bfa7033f0e839f1ff7"
 
 EXTRA_OECMAKE = "\
@@ -11,3 +11,4 @@ EXTRA_OECMAKE = "\
     -DGPIO_LOG_LEVEL=error \
     -DCMAKE_SKIP_RPATH=TRUE \
 "
+
