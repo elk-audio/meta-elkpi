@@ -6,6 +6,7 @@ SRC_URI += "\
 "
 
 do_install_append() {
+    rm -rf ${WORKDIR}/sw_version
     echo "${SWU_VERSION}" >>${WORKDIR}/sw_version
     install -d ${D}/www
     install -m 0755 ${WORKDIR}/swupdate-rpi-client ${D}${bindir}
