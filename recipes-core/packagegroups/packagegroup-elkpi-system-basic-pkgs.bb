@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0-only;m
 
 inherit packagegroup
 
-RDEPENDS_packagegroup-elkpi-system-basic-pkgs = "\
+RDEPENDS:packagegroup-elkpi-system-basic-pkgs = "\
     elkpi-systemd-services \
     swupdate \
     swupdate-usb \

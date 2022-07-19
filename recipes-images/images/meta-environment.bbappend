@@ -1,5 +1,5 @@
 # Add custom varialbes to be exported when SDK environment is setup
-create_sdk_files_append() {
+create_sdk_files:append() {
     # CMake sysroot should be the target sysroot
     echo 'export CMAKE_SYSROOT=$SDKTARGETSYSROOT' >> ${SDK_OUTPUT}/${SDKPATH}/environment-setup-${REAL_MULTIMACH_TARGET_SYS}
 

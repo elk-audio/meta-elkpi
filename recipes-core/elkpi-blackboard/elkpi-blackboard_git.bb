@@ -22,11 +22,11 @@ do_install() {
     install -m 0644 elk_ui.py ${D}${PYTHON_SITEPACKAGES_DIR}/
 }
 
-FILES_${PN} += "\
+FILES:${PN} += "\
     ${SENSEI_CONFIG_DIR} \
     ${SENSEI_CONFIG_DIR}/* \
     ${PYTHON_SITEPACKAGES_DIR}/* \
 "
 
-RDEPENDS_${PN} += " liberation-fonts"
+RDEPENDS:${PN} += " liberation-fonts"
 

@@ -21,7 +21,7 @@ do_install() {
     install -m 0755 ${WORKDIR}/elk_system_utils ${D}${bindir}
 }
 
-FILES_${PN} = "${bindir}*"
-FILES_${PN} += "${sysconfdir}*"
+FILES:${PN} = "${bindir}*"
+FILES:${PN} += "${sysconfdir}*"
 
-RDEPENDS_${PN} = "bash"
+RDEPENDS:${PN} = "bash"

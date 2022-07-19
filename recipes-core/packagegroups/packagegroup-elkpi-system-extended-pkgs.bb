@@ -6,6 +6,6 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0-only;m
 
 inherit packagegroup
 
-RDEPENDS_packagegroup-elkpi-system-extended-pkgs = "\
+RDEPENDS:packagegroup-elkpi-system-extended-pkgs = "\
     elkpi-blackboard \
 "

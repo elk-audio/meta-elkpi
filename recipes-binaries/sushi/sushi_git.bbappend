@@ -22,5 +22,5 @@ EXTRA_OECMAKE += "${@bb.utils.contains('VST2SDK_PATH', \
                  ' -DWITH_VST2=FALSE ' \
                  , d)}"
 
-INSANE_SKIP_${PN} += "dev-deps"
+INSANE_SKIP:${PN} += "dev-deps"
 
