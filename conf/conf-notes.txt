@@ -9,6 +9,7 @@ Elk Pi board specific targets:
     elkpi-audio-os-image-basic - builds a minimal Elk Audio OS development image
                                  with only essential packages
     elkpi-audio-os-image       - builds a full Elk Audio OS development image
+    elkpi-audio-os-swu         - builds a software update for the elkpi-audio-os
 
 
 To build an image, run:

@@ -1,6 +1,6 @@
-PV = "0.12.0+${SRCREV}"
+PV = "1.0-rc1-yocto-build+${SRCREV}"
 
-SRCREV = "364ebc2f7191fa4a990b5b91e6a430efb991a2db"
+SRCREV = "ac05b9fcd9d95eaded4908c2a1774a85a9d12dbe"
 
 EXTRA_OECMAKE += "\
     -DCMAKE_BUILD_TYPE=Release \

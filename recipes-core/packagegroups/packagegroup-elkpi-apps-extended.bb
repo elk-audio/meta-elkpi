@@ -12,4 +12,5 @@ RDEPENDS:packagegroup-elkpi-apps-extended = "\
     rpi-gpio \
     rpio \
     raspi-gpio \
+    stress-ng \
 "
