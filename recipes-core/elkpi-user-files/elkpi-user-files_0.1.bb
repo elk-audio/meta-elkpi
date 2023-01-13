@@ -13,5 +13,5 @@ do_install () {
     cp -r ${WORKDIR}/config_files ${D}${MIND_HOME_DIR}
 }
 
-FILES_${PN} += "${MIND_HOME_DIR}"
-FILES_${PN} += "${MIND_HOME_DIR}/*"
+FILES:${PN} += "${MIND_HOME_DIR}"
+FILES:${PN} += "${MIND_HOME_DIR}/*"

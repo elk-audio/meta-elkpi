@@ -15,11 +15,14 @@ case "$1" in
         sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry\"' /udata/.elk-system/elk-system.conf
     elif [ "$HAT_NAME" = "hifiberry-dac-plus-adc-pro" ]; then
         sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry-pro\"' /udata/.elk-system/elk-system.conf
+    elif [ "$HAT_NAME" = "elkpi-stereo" ]; then
+        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"elkpi-stereo\"' /udata/.elk-system/elk-system.conf
     else
         echo "Invalid audio hat $HAT_NAME specified. Options are :"
         echo "    - elk-pi (default)"
         echo "    - hifiberry-dac-plus-adc"
         echo "    - hifiberry-dac-plus-adc-pro"
+        echo "    - elkpi-stereo"
         exit 1
     fi
     echo "Using audio hat $HAT_NAME. Please power cycle for changes to take effect.."

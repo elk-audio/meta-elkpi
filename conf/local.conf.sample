@@ -1,4 +1,3 @@
-# For Rpi 4, uncomment the line below. It will override the above definition
 MACHINE = "raspberrypi4-64"
 
 DISTRO = "elk"
@@ -7,7 +6,7 @@ DL_DIR = "${TOPDIR}/../downloads"
 PACKAGE_CLASSES ?= "package_ipk"
 
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
-USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+USER_CLASSES ?= "buildstats"
 PATCHRESOLVE = "noop"
 BB_DISKMON_DIRS ??= "\
     STOPTASKS,${TMPDIR},1G,100K \
@@ -19,29 +18,29 @@ BB_DISKMON_DIRS ??= "\
     ABORT,${SSTATE_DIR},100M,1K \
     ABORT,/tmp,10M,1K"
 do_image_complete[deptask] += "do_populate_lic"
-PACKAGECONFIG_append_pn-qemu-native = " sdl"
-PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
+PACKAGECONFIG:append:pn-qemu-native = " sdl"
+PACKAGECONFIG:append:pn-nativesdk-qemu = " sdl"
 CONF_VERSION = "1"
 
 SECURITY_STRINGFORMAT = "-Wformat -Wformat-security"
 
-RPI_KERNEL_DEVICETREE_remove = "broadcom/bcm2711-rpi-400.dtb broadcom/bcm2711-rpi-cm4.dtb"
-RPI_KERNEL_DEVICETREE_OVERLAYS_remove = "overlays/vc4-kms-dsi-7inch.dtbo"
+RPI_KERNEL_DEVICETREE:remove = "broadcom/bcm2711-rpi-400.dtb broadcom/bcm2711-rpi-cm4.dtb"
+RPI_KERNEL_DEVICETREE_OVERLAYS:remove = "overlays/vc4-kms-dsi-7inch.dtbo"
 
 INHERIT += "rm_work"
 ENABLE_UART = "1"
 RPI_USE_U_BOOT = "1"
 SERIAL_CONSOLES = "ttyS0,57600"
 # set the host name of device
-SWU_VERSION = "0.11.0"
+SWU_VERSION = "1.0.0-rc1"
 
 VST2SDK_PATH = ""
-LICENSE_FLAGS_WHITELIST += "commercial"
+LICENSE_FLAGS_ACCEPTED += "commercial"
 EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
 ELK_HAT_NAME = "elk-pi"
 KERNEL_IMAGETYPE_raspberrypi4-64 = "Image.gz"
 # set the host name of device
-hostname_pn-base-files = "elk-pi"
+hostname:pn-base-files = "elk-pi"
 
 # Comment the following for qt image
 BBMASK += "meta-elkpi/recipes-images/images/elkpi-audio-os-image-qt.bb"
@@ -57,7 +56,7 @@ BBMASK += "meta-elk/recipes-qt/qt/qtbase_git.bbappend"
 # To disable VST2 support, just define `VST2SDK_PATH` as an empty string.
 
 # To generate sdk with x11 libs
-#IMAGE_INSTALL_append = " packagegroup-core-x11 \
+#IMAGE_INSTALL:append = " packagegroup-core-x11 \
 # libxcursor libxcursor-dev \
 # libxinerama libxinerama-dev \
 # "

@@ -12,7 +12,7 @@ IMAGE_INSTALL += "\
     packagegroup-elk-python-basic \
 "
 
-IMAGE_INSTALL_remove = " dropbear"
+IMAGE_INSTALL:remove = " dropbear"
 
 TOOLCHAIN_HOST_TASK += "\
     nativesdk-grpc \

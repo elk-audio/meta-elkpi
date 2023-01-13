@@ -6,4 +6,4 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0-only;m
 
 inherit packagegroup
 
-RDEPENDS_packagegroup-elkpi-apps-basic = "elkpi-system-files"
+RDEPENDS:packagegroup-elkpi-apps-basic = "elkpi-system-files"

@@ -30,13 +30,13 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 NATIVE_SYSTEMD_SUPPORT = "1"
 SYSTEMD_PACKAGES += "${PN}"
-SYSTEMD_SERVICE_${PN} += "\
+SYSTEMD_SERVICE:${PN} += "\
     sushi.service \
     sensei.service \
     midi-connections.service \
 "
 
-FILES_${PN} += "${systemd_system_unitdir}/*"
+FILES:${PN} += "${systemd_system_unitdir}/*"
 
 # To enable it replace disable with enable.
 SYSTEMD_AUTO_ENABLE = "disable"
