@@ -30,13 +30,15 @@ ROOTFS_POSTPROCESS_COMMAND += "set_special_permissions; "
 # Function which prerares the dual rootfs and udata partitions for the final image
 do_wic_image_prepare() {
     sed -i 's/console=serial0,115200/console=${SERIAL_CONSOLES}/' ${DEPLOY_DIR_IMAGE}/${BOOTFILES_DIR_NAME}/cmdline.txt
-    wic cp ${DEPLOY_DIR_IMAGE}/${BOOTFILES_DIR_NAME}/cmdline.txt ${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.wic:1
+    wic cp ${DEPLOY_DIR_IMAGE}/${BOOTFILES_DIR_NAME}/cmdline.txt ${DEPLOY_DIR_IMAGE}/${IMAGE_LINK_NAME}.wic:1
     #change perm on first boot service condition file in udata
     echo "change_perms" > ${DEPLOY_DIR_IMAGE}/change_perms
-    wic cp ${DEPLOY_DIR_IMAGE}/change_perms ${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.wic:4
+    wic cp ${DEPLOY_DIR_IMAGE}/change_perms ${DEPLOY_DIR_IMAGE}/${IMAGE_LINK_NAME}.wic:4
     rm -f ${DEPLOY_DIR_IMAGE}/change_perms
 
-    bzip2 -c ${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.wic > ${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.wic.bz2
+    bzip2 -c ${DEPLOY_DIR_IMAGE}/${IMAGE_LINK_NAME}.wic > ${DEPLOY_DIR_IMAGE}/${IMAGE_LINK_NAME}.wic.bz2
 }
 
 addtask wic_image_prepare after do_image_complete before do_rm_work
+
+IMAGE_LINK_NAME:append = "-v${SWU_VERSION}"

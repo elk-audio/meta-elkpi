@@ -13,4 +13,5 @@ RDEPENDS:packagegroup-elkpi-apps-extended = "\
     rpio \
     raspi-gpio \
     stress-ng \
+    raspa-test-apps \
 "

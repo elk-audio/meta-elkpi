@@ -8,25 +8,7 @@ fi
 case "$1" in
 
 --set-audio-hat)
-    HAT_NAME=$2
-    if [ "$HAT_NAME" = "elk-pi" ]; then
-        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"elk-pi\"' /udata/.elk-system/elk-system.conf
-    elif [ "$HAT_NAME" = "hifiberry-dac-plus-adc" ]; then
-        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry\"' /udata/.elk-system/elk-system.conf
-    elif [ "$HAT_NAME" = "hifiberry-dac-plus-adc-pro" ]; then
-        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"hifi-berry-pro\"' /udata/.elk-system/elk-system.conf
-    elif [ "$HAT_NAME" = "elkpi-stereo" ]; then
-        sed -i '/AUDIO_HAT=/c\AUDIO_HAT=\"elkpi-stereo\"' /udata/.elk-system/elk-system.conf
-    else
-        echo "Invalid audio hat $HAT_NAME specified. Options are :"
-        echo "    - elk-pi (default)"
-        echo "    - hifiberry-dac-plus-adc"
-        echo "    - hifiberry-dac-plus-adc-pro"
-        echo "    - elkpi-stereo"
-        exit 1
-    fi
-    echo "Using audio hat $HAT_NAME. Please power cycle for changes to take effect.."
-    echo "Note! This is persistent across boot cycles but not after software update."
+    echo "The audio HAT is autodetected by load-drivers script. Detected hat is stored in /tmp/audio_hat."
     ;;
 
 --set-buffer-size)

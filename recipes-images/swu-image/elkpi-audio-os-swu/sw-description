@@ -1,6 +1,6 @@
 software =
 {
-    version = "@@DISTRO_VERSION@@";
+    version = ""@@SWU_VERSION@@";
 
     stable:
     {
@@ -8,7 +8,7 @@ software =
         {
             images: (
                 {
-                    filename = "elkpi-audio-os-image-raspberrypi4-64.ext4.gz";
+                    filename = ""@@TARGET_IMAGE_FILE_NAME@@";
                     type = "raw";
                     device = "/dev/mmcblk0p2";
                     compressed = true;
@@ -32,7 +32,7 @@ software =
         {
             images: (
                 {
-                    filename = "elkpi-audio-os-image-raspberrypi4-64.ext4.gz";
+                    filename = "@@TARGET_IMAGE_FILE_NAME@@";
                     type = "raw";
                     device = "/dev/mmcblk0p3";
                     compressed = true;

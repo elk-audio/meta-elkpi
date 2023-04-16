@@ -2,17 +2,16 @@ DESCRIPTION = "Recipe to build SWUpdate for Elk Audio OS"
 
 LICENSE = "CLOSED"
 
-DISTRO_VERSION = "${SWU_VERSION}"
-
 SRC_URI = "\
     file://sw-description \
 "
 
-IMAGE_DEPENDS = "elkpi-audio-os-image"
+IMAGE_LINK_NAME:append = "-v${SWU_VERSION}"
 
-SWUPDATE_IMAGES = "elkpi-audio-os-image"
+TARGET_IMAGE_NAME = "elkpi-audio-os-image"
+TARGET_IMAGE_FILE_NAME = "${TARGET_IMAGE_NAME}-${MACHINE}-v${SWU_VERSION}.ext4.gz"
 
-SWUPDATE_IMAGES_FSTYPES[elkpi-audio-os-image] = ".ext4.gz"
+IMAGE_DEPENDS = "${TARGET_IMAGE_NAME}"
+SWUPDATE_IMAGES = "${TARGET_IMAGE_FILE_NAME}"
 
 inherit swupdate
-
