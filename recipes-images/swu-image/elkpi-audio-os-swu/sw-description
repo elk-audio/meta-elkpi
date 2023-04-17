@@ -1,6 +1,6 @@
 software =
 {
-    version = ""@@SWU_VERSION@@";
+    version = "@@SWU_VERSION@@";
 
     stable:
     {
@@ -8,7 +8,7 @@ software =
         {
             images: (
                 {
-                    filename = ""@@TARGET_IMAGE_FILE_NAME@@";
+                    filename = "@@TARGET_IMAGE_FILE_NAME@@";
                     type = "raw";
                     device = "/dev/mmcblk0p2";
                     compressed = true;
@@ -26,7 +26,7 @@ software =
                     value = "1";
                 }
             );
-        }
+        };
 
         mmcblk0p3:
         {
@@ -36,7 +36,7 @@ software =
                     type = "raw";
                     device = "/dev/mmcblk0p3";
                     compressed = true;
-		    installed-directly = true;
+		            installed-directly = true;
                 }
             );
 
@@ -50,7 +50,6 @@ software =
                     value = "0";
                 }
             );
-        }
+        };
     };
-}
-
+};
