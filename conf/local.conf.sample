@@ -30,7 +30,8 @@ RPI_KERNEL_DEVICETREE_OVERLAYS:remove = "overlays/vc4-kms-dsi-7inch.dtbo"
 INHERIT += "rm_work"
 ENABLE_UART = "1"
 RPI_USE_U_BOOT = "1"
-SERIAL_CONSOLES = "ttyS0,57600"
+SERIAL_CONSOLES = "57600;ttyS0"
+
 # set the host name of device
 SWU_VERSION = "1.0.0"
 
