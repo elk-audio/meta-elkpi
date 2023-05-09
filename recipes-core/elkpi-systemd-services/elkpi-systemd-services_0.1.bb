@@ -30,9 +30,11 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 NATIVE_SYSTEMD_SUPPORT = "1"
 SYSTEMD_PACKAGES += "${PN}"
+
+# Sensei service was removed from this list since sensei is not currently supported
+# on EVL based images because underlying driver is not implemented.
 SYSTEMD_SERVICE:${PN} += "\
     sushi.service \
-    sensei.service \
     midi-connections.service \
 "
 
