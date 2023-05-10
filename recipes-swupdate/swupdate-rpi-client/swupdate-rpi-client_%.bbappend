@@ -15,4 +15,3 @@ do_install:append() {
 }
 
 FILES:${PN} += "/www"
-
