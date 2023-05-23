@@ -1,7 +1,5 @@
 # Specific commit and build options of raspa for Elk Pi boards
 
-SRC_URI = "gitsm://github.com/elk-audio/sushi;protocol=https;nobranch=1"
-
 CONFIG_FILES_DIR = "/home/mind/config_files"
 
 # List of supported sushi config files

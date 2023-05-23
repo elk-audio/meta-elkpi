@@ -122,4 +122,4 @@ You can add new packages to the image in two ways. Usually, OpenEmbedded contain
 Then you can add the desired recipes to any of the [packagegroups](recipes-core/packagegroups) in this layer.
 
 ---
-Copyright 2017-2019 Modern Ancient Instruments Networked AB, dba Elk, Stockholm, Sweden.
+Copyright 2017-2023 Elk Audio AB, Stockholm, Sweden.

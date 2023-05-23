@@ -1,3 +1,4 @@
+# Note: This recipe is only for Elk Audio OS 0.11.0 or lower.
 SUMMARY = "Install Elk BlackBoard related files in the system"
 HOMEPAGE = "https://github.com/elk-audio/elk-examples"
 LICENSE = "GPLv3"
