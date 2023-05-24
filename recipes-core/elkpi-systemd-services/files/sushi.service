@@ -1,14 +1,16 @@
 [Unit]
 Description=sushi starting service
 After=load-drivers.service
-ConditionPathExists=/dev/rtdm/audio_rtdm
+ConditionPathExists=/dev/audio_evl
 
 [Service]
 Type=simple
 RemainAfterExit=yes
+LimitRTPRIO=infinity
+LimitMEMLOCK=infinity
+LimitSTACK=infinity
 WorkingDirectory=/udata/
-Environment=LD_LIBRARY_PATH=/usr/xenomai/lib
-ExecStart=/usr/bin/sushi -r -c /home/mind/config_files/config_empty.json
+ExecStart=/usr/bin/sushi -r -c /home/mind/config_files/empty.json
 User=mind
 
 [Install]
