@@ -12,4 +12,3 @@ EXTRA_OECMAKE = "\
     -DGPIO_LOG_LEVEL=error \
     -DCMAKE_SKIP_RPATH=TRUE \
 "
-

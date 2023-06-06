@@ -1,3 +1,9 @@
+# Append for swupdate-rpi-client
+# - Populates the /etc/sw_version file
+# - Create symlink /www/sw_version.txt to /etc/sw_version
+# - Add swupdate-rpi-client script
+# - Add notify-swupdate-start scripts
+
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += "\

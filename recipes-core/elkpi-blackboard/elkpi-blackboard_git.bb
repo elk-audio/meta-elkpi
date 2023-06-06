@@ -30,4 +30,3 @@ FILES:${PN} += "\
 "
 
 RDEPENDS:${PN} += " liberation-fonts"
-

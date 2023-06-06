@@ -1,4 +1,4 @@
-DESCRIPTION = "Recipe to build SWUpdate for Elk Audio OS"
+SUMMARY = "Full development SWU for Elk Pi which contains all packages"
 
 LICENSE = "CLOSED"
 
