@@ -10,6 +10,7 @@ IMAGE_INSTALL += "\
     packagegroup-elkpi-apps-basic \
     packagegroup-elkpi-system-basic-pkgs \
     packagegroup-elk-python-basic \
+    packagegroup-elk-image-testing \
 "
 
 IMAGE_INSTALL:remove = " dropbear"
