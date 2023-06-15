@@ -1,4 +1,4 @@
-# Specific commit and build options of raspa for Elk Pi boards
+# Add supported sushi examples to the elk-pi.
 
 CONFIG_FILES_DIR = "/home/mind/config_files"
 SOUND_FILES_DIR = "/home/mind/soundfiles"
@@ -16,6 +16,7 @@ CONFIG_FILES = "\
     play_brickworks_synth.json \
     play_lv2.json \
     play_master_gain.json \
+    play_vst2.json \
     play_vst3.json \
     prepost_tracks.json \
     rt_midi.json \
