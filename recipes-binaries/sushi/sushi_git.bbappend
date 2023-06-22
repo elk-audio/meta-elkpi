@@ -1,9 +1,14 @@
-# Add supported sushi examples to the elk-pi.
+# Sushi recipe append:
+# - Override SUPPORTED_BUFFER_SIZES
+# - Add elk-pi supported sushi examples
 
+# Define supported buffer size for this board
+SUPPORTED_BUFFER_SIZES = "32 64 128"
+
+# Add examples and sound files
 CONFIG_FILES_DIR = "/home/mind/config_files"
 SOUND_FILES_DIR = "/home/mind/soundfiles"
 
-# List of supported sushi config files
 CONFIG_FILES = "\
     arp_peakmeter_osc_broadcast.json \
     cv_to_synth.json \
