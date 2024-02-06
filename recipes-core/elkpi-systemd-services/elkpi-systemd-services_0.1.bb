@@ -9,6 +9,8 @@ SRC_URI += "\
 "
 
 S = "${WORKDIR}"
+
+PN = "elkpi-systemd-services"
 SYSTEMD_PACKAGES += "${PN}"
 SYSTEMD_SERVICE:${PN} += "\
     sushi.service \
@@ -29,7 +31,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 FILES:${PN} += "${systemd_system_unitdir}/*"
 
-PN = "elkpi-systemd-services"
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 NATIVE_SYSTEMD_SUPPORT = "1"
