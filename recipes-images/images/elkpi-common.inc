@@ -42,3 +42,4 @@ do_wic_image_prepare() {
 addtask wic_image_prepare after do_image_complete before do_rm_work
 
 IMAGE_LINK_NAME:append = "-v${SWU_VERSION}"
+SDK_VERSION = "v${SWU_VERSION}"
