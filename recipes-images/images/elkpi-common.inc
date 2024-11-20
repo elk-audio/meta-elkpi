@@ -41,5 +41,9 @@ do_wic_image_prepare() {
 
 addtask wic_image_prepare after do_image_complete before do_rm_work
 
+# Avoid appending .rootfs to the image file name
+IMAGE_NAME_SUFFIX = ""
+
+# Add version to image name
 IMAGE_LINK_NAME:append = "-v${SWU_VERSION}"
 SDK_VERSION = "v${SWU_VERSION}"

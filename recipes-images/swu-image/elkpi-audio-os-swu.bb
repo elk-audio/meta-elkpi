@@ -6,6 +6,7 @@ SRC_URI = "\
     file://sw-description \
 "
 
+IMAGE_NAME_SUFFIX = ""
 IMAGE_LINK_NAME:append = "-v${SWU_VERSION}"
 
 TARGET_IMAGE_NAME = "elkpi-audio-os-image"
