@@ -15,10 +15,12 @@ IMAGE_INSTALL += "\
 
 IMAGE_INSTALL:remove = " dropbear"
 
+# SDK gRPC and protobuf support
 TOOLCHAIN_HOST_TASK += "\
     nativesdk-grpc \
     nativesdk-grpc-dev \
 "
+TOOLCHAIN_TARGET_TASK += "protobuf-staticdev"
 
 # Set permissions for mind user for home/mind
 set_special_permissions () {
