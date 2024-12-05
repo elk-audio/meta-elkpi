@@ -30,18 +30,20 @@ set_special_permissions () {
 
 ROOTFS_POSTPROCESS_COMMAND += "set_special_permissions; "
 
-# Function which prerares the dual rootfs and udata partitions for the final image
-do_wic_image_prepare() {
-    wic cp ${DEPLOY_DIR_IMAGE}/${BOOTFILES_DIR_NAME}/cmdline.txt ${DEPLOY_DIR_IMAGE}/${IMAGE_LINK_NAME}.wic:1
+IMAGE_CMD:wic:append () {
+    wic cp ${DEPLOY_DIR_IMAGE}/${BOOTFILES_DIR_NAME}/cmdline.txt ${IMGDEPLOYDIR}/${IMAGE_NAME}.wic:1
+
     #change perm on first boot service condition file in udata
     echo "change_perms" > ${DEPLOY_DIR_IMAGE}/change_perms
-    wic cp ${DEPLOY_DIR_IMAGE}/change_perms ${DEPLOY_DIR_IMAGE}/${IMAGE_LINK_NAME}.wic:4
+    wic cp ${DEPLOY_DIR_IMAGE}/change_perms ${IMGDEPLOYDIR}/${IMAGE_NAME}.wic:4
     rm -f ${DEPLOY_DIR_IMAGE}/change_perms
-
-    bzip2 -c ${DEPLOY_DIR_IMAGE}/${IMAGE_LINK_NAME}.wic > ${DEPLOY_DIR_IMAGE}/${IMAGE_LINK_NAME}.wic.bz2
 }
 
-addtask wic_image_prepare after do_image_complete before do_rm_work
+compress_image () {
+    bzip2 -c ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.wic > ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.wic.bz2
+}
+
+IMAGE_POSTPROCESS_COMMAND += "compress_image"
 
 # Avoid appending .rootfs to the image file name
 IMAGE_NAME_SUFFIX = ""
