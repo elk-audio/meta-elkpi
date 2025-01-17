@@ -2,7 +2,7 @@
 
 OpenEmbedded/Yocto Project layer which forms the final product layer for
  creating the Elk Audio OS Image for the ElkPi Development Kits based on the
- RaspberryPi 3B+ or 3B.
+ RaspberryPi 4.
 
 Contains the necessary packages, services, firmware binaries and image recipes
  specific to the ElkPi Development Kit.
@@ -34,9 +34,10 @@ The images provided by this layer are :
      to `elkpi-audio-os-image`.
 
 ## Compatible Machines
-The layer can build the same image for both RaspberryPi 3 and RaspberryPi 4. By default, the local.conf sets `MACHINE = "raspberrypi3"`
 
-To build for RaspberryPi4 set `MACHINE = "raspberrypi4-64"` in the local.conf.
+In previous versions RaspberryPi3 was supported, it is not guaranteed to work anymore.
+
+To attempt to build for RaspberryPi3, set `MACHINE = "raspberrypi3"` in the `local.conf`.
 
 ## Dependencies
 
