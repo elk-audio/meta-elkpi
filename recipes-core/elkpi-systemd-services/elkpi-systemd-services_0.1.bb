@@ -8,7 +8,6 @@ PN = "elkpi-systemd-services"
 
 SRC_URI += "\
     file://sushi.service \
-    file://sensei.service \
     file://midi-connections.service \
 "
 
@@ -22,7 +21,6 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 do_install () {
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${WORKDIR}/sushi.service ${D}${systemd_system_unitdir}/
-    install -m 0644 ${WORKDIR}/sensei.service ${D}${systemd_system_unitdir}/
     install -m 0644 ${WORKDIR}/midi-connections.service ${D}${systemd_system_unitdir}/
 }
 
@@ -31,8 +29,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 NATIVE_SYSTEMD_SUPPORT = "1"
 SYSTEMD_PACKAGES += "${PN}"
 
-# Sensei service was removed from this list since sensei is not currently supported
-# on EVL based images because underlying driver is not implemented.
 SYSTEMD_SERVICE:${PN} += "\
     sushi.service \
     midi-connections.service \

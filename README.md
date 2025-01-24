@@ -16,7 +16,6 @@ add further customization of recipes in
 The specific contributions of this layer are:
 
   * Selects the specific versions of [SUSHI](https://github.com/elk-audio/sushi),
-    [SENSEI](https://github.com/elk-audio/sensei),
     [RASPA](https://github.com/elk-audio/raspa) and
     [TWINE](https://github.com/elk-audio/twine) and describes their build options.
   * Installs system and user files for ElkPi Development Kit.
@@ -88,14 +87,13 @@ SRC_URI += "file://your_new_file"
 cp -r ${WORKDIR}/your_new_file ${D}path_in_image_rootfs
 ```
  
-## Enabling SUSHI and SENSEI automatic startup
+## Enabling SUSHI automatic startup
 
-You can enable and customize the automatic startup of SUSHI and SENSEI in the
+You can enable and customize the automatic startup of SUSHI in the
  image by modifying the recipe
  [elkpi-systemd-services](recipes-core/elkpi-systemd-services/elkpi-systemd-services_0.1.bb):
 
   * Modify [sushi.service](recipes-core/elkpi-systemd-services/files/sushi.service)
-    and [sensei.service](recipes-core/elkpi-systemd-services/files/sensei.service)
     with your desired command-line arguments and config files.
   * If you want any automatic USB MIDI keyboard detection at startup, you can modify
     the [connect-midi-apps](recipes-core/elkpi-system-files/files/connect-midi-apps)
