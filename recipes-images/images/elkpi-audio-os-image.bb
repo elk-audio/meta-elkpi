@@ -1,12 +1,12 @@
 SUMMARY = "Full development image for Elk Pi which contains all packages"
 HOMEPAGE = "https://github.com/elk-audio/meta-elkpi"
 
+require recipes-core/images/core-image-minimal-dev.bb
+require elkpi-common.inc
+
 SDIMG_ROOTFS_TYPE = "ext4"
 
 EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
-
-require recipes-core/images/core-image-minimal-dev.bb
-require elkpi-common.inc
 
 ROOTFS_POSTPROCESS_COMMAND += "set_sudo_permissions; "
 

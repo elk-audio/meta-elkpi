@@ -1,13 +1,13 @@
 SUMMARY = "Full development SWU for Elk Pi which contains all packages"
 LICENSE = "CLOSED"
 
+inherit swupdate
+
 SRC_URI = "\
     file://sw-description \
 "
 
 SWUPDATE_IMAGES = "${TARGET_IMAGE_FILE_NAME}"
-
-inherit swupdate
 
 IMAGE_NAME_SUFFIX = ""
 IMAGE_LINK_NAME:append = "-v${SWU_VERSION}"
