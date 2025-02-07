@@ -4,8 +4,13 @@ HOMEPAGE = "https://github.com/elk-audio/meta-elkpi"
 require recipes-core/images/core-image-minimal-dev.bb
 require elkpi-common.inc
 
-IMAGE_FEATURES += "package-management"
+SDIMG_ROOTFS_TYPE = "ext4"
 
+EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
+
+ROOTFS_POSTPROCESS_COMMAND += "set_sudo_permissions; "
+
+IMAGE_FEATURES += "package-management"
 IMAGE_INSTALL += "\
     glibc-utils \
     localedef \
@@ -26,19 +31,12 @@ set_sudo_permissions () {
     # Give sudo permission for users
     sed -i 's/# %sudo/%sudo/' ${IMAGE_ROOTFS}/etc/sudoers
 }
-
-ROOTFS_POSTPROCESS_COMMAND += "set_sudo_permissions; "
-
 # Add mda-vst2-plugins to the image if VST2SDK_PATH is defined in local.conf
 IMAGE_INSTALL += "${@bb.utils.contains('VST2SDK_PATH', \
                  '', \
                  ' mda-vst2-plugins ', \
                  ' ' \
                  , d)}"
-
-EXTRA_IMAGE_FEATURES = " debug-tweaks ssh-server-openssh package-management"
-
 IMAGE_ROOTFS_SIZE = "2000000"
-SDIMG_ROOTFS_TYPE = "ext4"
 IMAGE_FSTYPES = "wic ext4.gz tar.gz"
 WKS_FILE = "elkpi.wks"

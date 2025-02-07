@@ -1,10 +1,14 @@
 SUMMARY = "Full development image for Elk Pi which contains all packages"
 HOMEPAGE = "https://github.com/elk-audio/meta-elkpi"
 
-require recipes-core/images/core-image-minimal-dev.bb
-require elkpi-common.inc
+SDIMG_ROOTFS_TYPE = "ext4"
 
 inherit populate_sdk_qt5
+
+EXTRA_IMAGE_FEATURES += " ssh-server-openssh package-management"
+
+require recipes-core/images/core-image-minimal-dev.bb
+require elkpi-common.inc
 
 IMAGE_INSTALL += "\
     packagegroup-elk-devtools-extended \
@@ -19,17 +23,12 @@ IMAGE_INSTALL += "\
     mda-vst3-plugins \
     mda-lv2 \
 "
-
 # Add mda-vst2-plugins to the image if VST2SDK_PATH is defined in local.conf
 IMAGE_INSTALL += "${@bb.utils.contains('VST2SDK_PATH', \
                  '', \
                  ' mda-vst2-plugins ', \
                  ' ' \
                  , d)}"
-
-EXTRA_IMAGE_FEATURES += " ssh-server-openssh package-management"
-
 IMAGE_ROOTFS_SIZE = "2000000"
-SDIMG_ROOTFS_TYPE = "ext4"
 IMAGE_FSTYPES = "wic ext4.gz"
 WKS_FILE = "elkpi.wks"
