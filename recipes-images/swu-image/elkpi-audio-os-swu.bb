@@ -1,11 +1,9 @@
 SUMMARY = "Full development SWU for Elk Pi which contains all packages"
 LICENSE = "CLOSED"
 
-
 SRC_URI = "\
     file://sw-description \
 "
-
 
 IMAGE_NAME_SUFFIX = ""
 IMAGE_LINK_NAME:append = "-v${SWU_VERSION}"
