@@ -13,6 +13,8 @@ IMAGE_INSTALL += "\
     packagegroup-elk-image-testing \
 "
 
+IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'bluetooth-audio', 'packagegroup-elk-bluetooth-audio', '', d)}"
+
 IMAGE_INSTALL:remove = " dropbear"
 
 # SDK gRPC and protobuf support
